@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Chat Encryption Selection View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ChatEncryptionSelection" id="Y6W-OH-hqX" customClass="ChatEncryptionSelectionViewController" customModule="Psms" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Keb-tr-2dz">
+                                <rect key="frame" x="35" y="166.5" width="305" height="334"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encryption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9H-Cd-Q8n">
+                                        <rect key="frame" x="92.5" y="20" width="120" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iq2-9s-zZ1" customClass="RoundedButton" customModule="Psms" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="284" width="265" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <state key="normal" title="Apply">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="applyButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nZd-Tf-gzY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGN-NE-Nox">
+                                        <rect key="frame" x="20" y="70" width="265" height="54"/>
+                                        <string key="text">Please select encryption method
+That will change what they look like
+(Afects only outgoing messages)</string>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3z-VP-Rd5">
+                                        <rect key="frame" x="0.0" y="129" width="305" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="O0m-1g-ehH"/>
+                                        </constraints>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="iq2-9s-zZ1" firstAttribute="centerX" secondItem="Keb-tr-2dz" secondAttribute="centerX" id="6pW-mq-Uxg"/>
+                                    <constraint firstItem="l3z-VP-Rd5" firstAttribute="centerX" secondItem="Keb-tr-2dz" secondAttribute="centerX" id="Asq-q9-kk6"/>
+                                    <constraint firstItem="dGN-NE-Nox" firstAttribute="centerX" secondItem="Keb-tr-2dz" secondAttribute="centerX" id="Fzp-sR-Nfc"/>
+                                    <constraint firstAttribute="bottom" secondItem="iq2-9s-zZ1" secondAttribute="bottom" constant="20" id="L8F-en-p3X"/>
+                                    <constraint firstItem="l3z-VP-Rd5" firstAttribute="leading" secondItem="Keb-tr-2dz" secondAttribute="leading" id="YsD-W2-9oP"/>
+                                    <constraint firstItem="l3z-VP-Rd5" firstAttribute="top" secondItem="dGN-NE-Nox" secondAttribute="bottom" constant="5" id="aFm-Pa-XKL"/>
+                                    <constraint firstItem="E9H-Cd-Q8n" firstAttribute="top" secondItem="Keb-tr-2dz" secondAttribute="top" constant="20" id="avN-yt-ADc"/>
+                                    <constraint firstAttribute="trailing" secondItem="iq2-9s-zZ1" secondAttribute="trailing" constant="20" id="cWh-dD-J3y"/>
+                                    <constraint firstAttribute="height" constant="450" id="en5-8z-QoD"/>
+                                    <constraint firstItem="iq2-9s-zZ1" firstAttribute="top" secondItem="l3z-VP-Rd5" secondAttribute="bottom" constant="5" id="hZS-dU-tcC"/>
+                                    <constraint firstItem="dGN-NE-Nox" firstAttribute="leading" secondItem="Keb-tr-2dz" secondAttribute="leading" constant="20" id="n9P-mc-15j"/>
+                                    <constraint firstItem="dGN-NE-Nox" firstAttribute="top" secondItem="E9H-Cd-Q8n" secondAttribute="bottom" constant="20" id="nhl-Qj-ew4"/>
+                                    <constraint firstItem="E9H-Cd-Q8n" firstAttribute="centerX" secondItem="Keb-tr-2dz" secondAttribute="centerX" id="qLW-Zj-Oht"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="en5-8z-QoD"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Keb-tr-2dz" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="3lt-II-djR"/>
+                            <constraint firstItem="Keb-tr-2dz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="35" id="u9z-2b-XBK"/>
+                            <constraint firstItem="Keb-tr-2dz" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="x2Z-Hp-2in"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="picker" destination="l3z-VP-Rd5" id="Irl-xu-ZNo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="57"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

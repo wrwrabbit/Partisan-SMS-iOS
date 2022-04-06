@@ -1,0 +1,6 @@
+framework module p_sms {
+    umbrella header "p_sms.h"
+
+    export *
+    module * { export * }
+}

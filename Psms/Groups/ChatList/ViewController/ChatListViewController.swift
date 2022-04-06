@@ -1,0 +1,166 @@
+import Actions
+import EmptyDataSet_Swift
+import RealmSwift
+import UIKit
+
+class ChatListViewController: UIViewController {
+
+    // - UI
+    @IBOutlet var tableView: UITableView!
+
+    // - Data source
+    private var tableViewDataSource: ChatListTableViewDataSource!
+
+    // - Data
+    private var chats: Results<ChatDTOModel>?
+    private var chatsToken: NotificationToken?
+
+    // - Manager
+    private var layoutManager: ChatListLayoutManager!
+    private var coordinatorManager: ChatListCoordinatorManager!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configure()
+    }
+
+    deinit {
+        chatsToken?.invalidate()
+    }
+
+}
+
+// MARK: -
+// MARK: - ViewController Lifecycle
+
+extension ChatListViewController {
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        layoutManager.viewWillAppear(animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        layoutManager.viewWillDisappear(animated)
+    }
+
+}
+
+// MARK: -
+// MARK: - Data source delegate
+
+extension ChatListViewController: ChatListTableViewDataSourceDelegate {
+    
+    func didTapActions(item: ChatListCellModel) {
+        let actionSheetController = UIAlertController(title: "Actions", message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {
+            [weak self] _ in
+            guard let self = self else { return }
+            let realm = try! Realm()
+            try? realm.write {
+                realm.delete(realm.objects(MessageDTOModel.self).filter({ $0.chatId == item.model.chatId }))
+                realm.delete(item.model)
+            }
+        }
+        actionSheetController.addAction(deleteAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+            _ in
+        }
+        actionSheetController.addAction(cancelAction)
+        self.presentInFullScreen(actionSheetController, animated: true, completion: nil)
+    }
+    
+
+    func didTapOnCell(item: ChatListCellModel) {
+        coordinatorManager.showChat(chat: item.model)
+    }
+
+}
+
+// MARK: -
+// MARK: - Configure
+
+private extension ChatListViewController {
+
+    func configure() {
+        configureLayoutManager()
+        configureDataSourceManager()
+        configureCoordinatorManager()
+        configureObserver()
+        configureNavigationBar()
+    }
+
+    func configureLayoutManager() {
+        layoutManager = ChatListLayoutManager(viewController: self)
+    }
+
+    func configureDataSourceManager() {
+        tableViewDataSource = ChatListTableViewDataSource(tableView: tableView)
+        tableViewDataSource.delegate = self
+        tableView.emptyDataSetSource = self
+    }
+
+    func configureCoordinatorManager() {
+        coordinatorManager = ChatListCoordinatorManager(viewController: self)
+    }
+
+    func configureObserver() {
+        chats = try? Realm().objects(ChatDTOModel.self)
+        chatsToken = chats?.observe {
+            [weak self] _ in
+            guard let self = self else { return }
+            var cellData = [ChatListCellModel]()
+            for item in self.chats! {
+                if let _ = KeychainManager.shared.getPasswordForChat(chatId: item.chatId) {
+                    cellData.append(ChatListCellModel(model: item))
+                }
+            }
+            self.tableViewDataSource.update(with: cellData)
+        }
+    }
+
+    func configureNavigationBar() {
+        let rightItem = UIBarButtonItem(barButtonSystemItem: .add) {
+            [weak self] in guard let self = self else { return }
+            self.coordinatorManager.showCreateChat()
+        }
+        navigationItem.rightBarButtonItem = rightItem
+    }
+
+}
+
+// MARK: -
+// MARK: - DefaultEmptyDataSource
+
+extension ChatListViewController: EmptyDataSetSource {
+
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        return NSAttributedString(string: "No chats", attributes: [
+                :
+
+
+                //                                    NSAttributedString.Key.font: UIFont.get(style: .medium, size: 14, font: .sfText),
+                //                                                                               NSAttributedString.Key.foregroundColor: UIColor(red: 37, green: 37, blue: 37, alpha: 0.78)
+
+        ])
+    }
+
+//    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+//        let userNameAttributed = NSMutableAttributedString(string: "Please, come back later when\nthe content will be updated", attributes: [NSAttributedString.Key.font: UIFont.get(style: .regular, size: 14, font: .sfText),
+//                                                                                                                                             NSAttributedString.Key.foregroundColor: UIColor(hexString: "8A8A8F")])
+//        return userNameAttributed
+//    }
+//
+}
+
+// MARK: -
+// MARK: - CreateChatViewControllerDelegate
+
+extension ChatListViewController: CreateChatViewControllerDelegate {
+    
+    func chatCreated(chat: ChatDTOModel) {
+        coordinatorManager.showChat(chat: chat)
+    }
+    
+}

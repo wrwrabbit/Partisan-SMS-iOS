@@ -1,0 +1,965 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6116A2C9279A025B00DF3E2F /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116A2C8279A025B00DF3E2F /* KeychainManager.swift */; };
+		6116A2CB279A0ADB00DF3E2F /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116A2CA279A0ADB00DF3E2F /* AES.swift */; };
+		6116A2D0279A1CD100DF3E2F /* UnlockPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116A2CF279A1CD100DF3E2F /* UnlockPasswordViewController.swift */; };
+		613D064B2799FE74004106F6 /* SecuritySetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D064A2799FE74004106F6 /* SecuritySetupViewController.swift */; };
+		6141DA4827F113C2004DA95C /* ChatEncryptionSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6141DA4627F113C2004DA95C /* ChatEncryptionSelection.storyboard */; };
+		6141DA4B27F113E6004DA95C /* ChatList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6141DA4927F113E6004DA95C /* ChatList.storyboard */; };
+		6141DA4E27F113FF004DA95C /* CreateChat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6141DA4C27F113FF004DA95C /* CreateChat.storyboard */; };
+		6141DA5427F11447004DA95C /* SecuritySetup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6141DA5227F11447004DA95C /* SecuritySetup.storyboard */; };
+		6141DA5727F11457004DA95C /* UnlockPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6141DA5527F11457004DA95C /* UnlockPassword.storyboard */; };
+		61566CB627F9C7A100DF45BC /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61566CB527F9C7A100DF45BC /* RoundedButton.swift */; };
+		61566CB827FA118600DF45BC /* ChatDataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61566CB727FA118600DF45BC /* ChatDataBaseManager.swift */; };
+		6160CBE6279A20290087163F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6160CBE5279A20290087163F /* AppCoordinator.swift */; };
+		616F3BAA27F21F1600DDA9A8 /* Pods_Psms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D89E1D1A7F7C2FE138CC9B62 /* Pods_Psms.framework */; };
+		61D7C70527C14453004FFA2E /* EncryptionSchemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D7C70427C14453004FFA2E /* EncryptionSchemeType.swift */; };
+		61D7C70927C14AA4004FFA2E /* ChatEncryptionSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D7C70827C14AA4004FFA2E /* ChatEncryptionSelectionDelegate.swift */; };
+		61D7C70B27C14AB4004FFA2E /* ChatEncryptionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D7C70A27C14AB4004FFA2E /* ChatEncryptionSelectionViewController.swift */; };
+		61D7C70E27C1816A004FFA2E /* EncryptionPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D7C70D27C1816A004FFA2E /* EncryptionPickerDataSource.swift */; };
+		61FE29BC27A6D4E700A549A9 /* EncryptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FE29BB27A6D4E700A549A9 /* EncryptionManager.swift */; };
+		61FE29BE27A6D65A00A549A9 /* EncryptionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FE29BD27A6D65A00A549A9 /* EncryptionManagerProtocol.swift */; };
+		61FE29D127A729DC00A549A9 /* p_sms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FE29CF27A729D400A549A9 /* p_sms.framework */; platformFilter = ios; };
+		61FE29D227A729DC00A549A9 /* p_sms.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61FE29CF27A729D400A549A9 /* p_sms.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9C00FE44268EBDCA00896F2F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C00FE43268EBDCA00896F2F /* DateExtension.swift */; };
+		9C00FE46268EBF7200896F2F /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C00FE45268EBF7200896F2F /* Storyboard.swift */; };
+		9C00FE48268EC02D00896F2F /* StoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C00FE47268EC02D00896F2F /* StoryboardExtension.swift */; };
+		9C25212726863B7E0056DA53 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C25212626863B7E0056DA53 /* Colors.xcassets */; };
+		9C25212C2686941C0056DA53 /* MessageDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25212B2686941C0056DA53 /* MessageDTOModel.swift */; };
+		9C7F5A17268F438E00CB82B8 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F5A16268F438E00CB82B8 /* PopUpViewController.swift */; };
+		9C7F5A21268F443400CB82B8 /* CreateChatLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F5A1C268F443400CB82B8 /* CreateChatLayoutManager.swift */; };
+		9C7F5A22268F443400CB82B8 /* CreateChatCoordinatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F5A1D268F443400CB82B8 /* CreateChatCoordinatorManager.swift */; };
+		9C7F5A23268F443400CB82B8 /* CreateChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F5A1F268F443400CB82B8 /* CreateChatViewController.swift */; };
+		9C7F5A26268F496800CB82B8 /* CreateChatViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F5A25268F496800CB82B8 /* CreateChatViewControllerDelegate.swift */; };
+		9C7F5A29268F69E600CB82B8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F5A28268F69E600CB82B8 /* ChatViewController.swift */; };
+		9C7F5A2D268F6C5900CB82B8 /* ChatCoordinatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F5A2B268F6C5900CB82B8 /* ChatCoordinatorManager.swift */; };
+		9C7F5A2E268F6C5900CB82B8 /* ChatLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F5A2C268F6C5900CB82B8 /* ChatLayoutManager.swift */; };
+		9C7F5A30268F7C7000CB82B8 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F5A2F268F7C7000CB82B8 /* UIColorExtension.swift */; };
+		9C7F5A32268F7FDC00CB82B8 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F5A31268F7FDB00CB82B8 /* UIViewControllerExtension.swift */; };
+		9C8B6836268D011000A8E8EA /* ChatListTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B6828268D011000A8E8EA /* ChatListTableViewDataSource.swift */; };
+		9C8B6838268D011000A8E8EA /* ChatListTableViewDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B682C268D011000A8E8EA /* ChatListTableViewDataSourceDelegate.swift */; };
+		9C8B683A268D011000A8E8EA /* ChatListLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B6830268D011000A8E8EA /* ChatListLayoutManager.swift */; };
+		9C8B683B268D011000A8E8EA /* ChatListCoordinatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B6831268D011000A8E8EA /* ChatListCoordinatorManager.swift */; };
+		9C8B683C268D011000A8E8EA /* ChatListCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B6833268D011000A8E8EA /* ChatListCellModel.swift */; };
+		9C8B683D268D011000A8E8EA /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B6835268D011000A8E8EA /* ChatListViewController.swift */; };
+		9C8B6840268D03F100A8E8EA /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B683F268D03F100A8E8EA /* ChatListTableViewCell.swift */; };
+		9CEC44B3266BFC2200D91070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC44B2266BFC2200D91070 /* AppDelegate.swift */; };
+		9CEC44BC266BFC2300D91070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC44BB266BFC2300D91070 /* Assets.xcassets */; };
+		9CEC44BF266BFC2300D91070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC44BD266BFC2300D91070 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		61FE29CB27A7111000A549A9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				61FE29D227A729DC00A549A9 /* p_sms.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2F9F412A201665C7D8CF7A22 /* Pods-Psms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Psms.release.xcconfig"; path = "Target Support Files/Pods-Psms/Pods-Psms.release.xcconfig"; sourceTree = "<group>"; };
+		6116A2C8279A025B00DF3E2F /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		6116A2CA279A0ADB00DF3E2F /* AES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES.swift; sourceTree = "<group>"; };
+		6116A2CF279A1CD100DF3E2F /* UnlockPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockPasswordViewController.swift; sourceTree = "<group>"; };
+		613D064A2799FE74004106F6 /* SecuritySetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecuritySetupViewController.swift; sourceTree = "<group>"; };
+		6141DA4727F113C2004DA95C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Psms/Base.lproj/ChatEncryptionSelection.storyboard; sourceTree = SOURCE_ROOT; };
+		6141DA4A27F113E6004DA95C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Psms/Base.lproj/ChatList.storyboard; sourceTree = SOURCE_ROOT; };
+		6141DA4D27F113FF004DA95C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Psms/Base.lproj/CreateChat.storyboard; sourceTree = SOURCE_ROOT; };
+		6141DA5327F11447004DA95C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Psms/Base.lproj/SecuritySetup.storyboard; sourceTree = SOURCE_ROOT; };
+		6141DA5627F11457004DA95C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Psms/Base.lproj/UnlockPassword.storyboard; sourceTree = SOURCE_ROOT; };
+		61566CB527F9C7A100DF45BC /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		61566CB727FA118600DF45BC /* ChatDataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataBaseManager.swift; sourceTree = "<group>"; };
+		6160CBE5279A20290087163F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		6184202927FA4E8D00805B28 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		6184202A27FA4E8D00805B28 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ../../../ru.lproj/ChatEncryptionSelection.strings; sourceTree = "<group>"; };
+		6184202B27FA4E8D00805B28 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ../../../ru.lproj/UnlockPassword.strings; sourceTree = "<group>"; };
+		6184202C27FA4E8D00805B28 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ../../../ru.lproj/SecuritySetup.strings; sourceTree = "<group>"; };
+		6184202D27FA4E8E00805B28 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ../../../ru.lproj/CreateChat.strings; sourceTree = "<group>"; };
+		6184202E27FA4E8E00805B28 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ../../../ru.lproj/ChatList.strings; sourceTree = "<group>"; };
+		61D7C70427C14453004FFA2E /* EncryptionSchemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionSchemeType.swift; sourceTree = "<group>"; };
+		61D7C70827C14AA4004FFA2E /* ChatEncryptionSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEncryptionSelectionDelegate.swift; sourceTree = "<group>"; };
+		61D7C70A27C14AB4004FFA2E /* ChatEncryptionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEncryptionSelectionViewController.swift; sourceTree = "<group>"; };
+		61D7C70D27C1816A004FFA2E /* EncryptionPickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionPickerDataSource.swift; sourceTree = "<group>"; };
+		61FE29BB27A6D4E700A549A9 /* EncryptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionManager.swift; sourceTree = "<group>"; };
+		61FE29BD27A6D65A00A549A9 /* EncryptionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionManagerProtocol.swift; sourceTree = "<group>"; };
+		61FE29CF27A729D400A549A9 /* p_sms.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = p_sms.framework; sourceTree = "<group>"; };
+		9C00FE43268EBDCA00896F2F /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		9C00FE45268EBF7200896F2F /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		9C00FE47268EC02D00896F2F /* StoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
+		9C25212626863B7E0056DA53 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		9C25212B2686941C0056DA53 /* MessageDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDTOModel.swift; sourceTree = "<group>"; };
+		9C7F5A16268F438E00CB82B8 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		9C7F5A1C268F443400CB82B8 /* CreateChatLayoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatLayoutManager.swift; sourceTree = "<group>"; };
+		9C7F5A1D268F443400CB82B8 /* CreateChatCoordinatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatCoordinatorManager.swift; sourceTree = "<group>"; };
+		9C7F5A1F268F443400CB82B8 /* CreateChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatViewController.swift; sourceTree = "<group>"; };
+		9C7F5A25268F496800CB82B8 /* CreateChatViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatViewControllerDelegate.swift; sourceTree = "<group>"; };
+		9C7F5A28268F69E600CB82B8 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		9C7F5A2B268F6C5900CB82B8 /* ChatCoordinatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCoordinatorManager.swift; sourceTree = "<group>"; };
+		9C7F5A2C268F6C5900CB82B8 /* ChatLayoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLayoutManager.swift; sourceTree = "<group>"; };
+		9C7F5A2F268F7C7000CB82B8 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		9C7F5A31268F7FDB00CB82B8 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		9C8B6828268D011000A8E8EA /* ChatListTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListTableViewDataSource.swift; sourceTree = "<group>"; };
+		9C8B682C268D011000A8E8EA /* ChatListTableViewDataSourceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListTableViewDataSourceDelegate.swift; sourceTree = "<group>"; };
+		9C8B6830268D011000A8E8EA /* ChatListLayoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListLayoutManager.swift; sourceTree = "<group>"; };
+		9C8B6831268D011000A8E8EA /* ChatListCoordinatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListCoordinatorManager.swift; sourceTree = "<group>"; };
+		9C8B6833268D011000A8E8EA /* ChatListCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListCellModel.swift; sourceTree = "<group>"; };
+		9C8B6835268D011000A8E8EA /* ChatListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		9C8B683F268D03F100A8E8EA /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
+		9CEC44AF266BFC2200D91070 /* Psms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Psms.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CEC44B2266BFC2200D91070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9CEC44BB266BFC2300D91070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9CEC44BE266BFC2300D91070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9CEC44C0266BFC2300D91070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D29F7C6C4D963F8781113C89 /* Pods-Psms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Psms.debug.xcconfig"; path = "Target Support Files/Pods-Psms/Pods-Psms.debug.xcconfig"; sourceTree = "<group>"; };
+		D89E1D1A7F7C2FE138CC9B62 /* Pods_Psms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Psms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9CEC44AC266BFC2200D91070 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61FE29D127A729DC00A549A9 /* p_sms.framework in Frameworks */,
+				616F3BAA27F21F1600DDA9A8 /* Pods_Psms.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6116A2C7279A024000DF3E2F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6116A2C8279A025B00DF3E2F /* KeychainManager.swift */,
+				6116A2CA279A0ADB00DF3E2F /* AES.swift */,
+				61FE29BB27A6D4E700A549A9 /* EncryptionManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		6116A2CC279A1C8400DF3E2F /* UnlockPassword */ = {
+			isa = PBXGroup;
+			children = (
+				6116A2CE279A1CA700DF3E2F /* ViewController */,
+				6116A2CD279A1C9A00DF3E2F /* Storyboard */,
+			);
+			path = UnlockPassword;
+			sourceTree = "<group>";
+		};
+		6116A2CD279A1C9A00DF3E2F /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				6141DA5527F11457004DA95C /* UnlockPassword.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		6116A2CE279A1CA700DF3E2F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6116A2CF279A1CD100DF3E2F /* UnlockPasswordViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		613D06462799FE17004106F6 /* SecuritySetup */ = {
+			isa = PBXGroup;
+			children = (
+				613D06492799FE43004106F6 /* Manager */,
+				613D06482799FE32004106F6 /* ViewController */,
+				613D06472799FE22004106F6 /* Storyboard */,
+			);
+			path = SecuritySetup;
+			sourceTree = "<group>";
+		};
+		613D06472799FE22004106F6 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				6141DA5227F11447004DA95C /* SecuritySetup.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		613D06482799FE32004106F6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				613D064A2799FE74004106F6 /* SecuritySetupViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		613D06492799FE43004106F6 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		61566CB427F9C79100DF45BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				61566CB527F9C7A100DF45BC /* RoundedButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6160CBE4279A200C0087163F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				6160CBE5279A20290087163F /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		61D7C6FF27C14397004FFA2E /* ChatEncryptionSelection */ = {
+			isa = PBXGroup;
+			children = (
+				61D7C70C27C18066004FFA2E /* DataSource */,
+				61D7C70327C14426004FFA2E /* Enum */,
+				61D7C70227C14418004FFA2E /* Storyboard */,
+				61D7C70127C14409004FFA2E /* Protocol */,
+				61D7C70027C143C4004FFA2E /* ViewController */,
+			);
+			path = ChatEncryptionSelection;
+			sourceTree = "<group>";
+		};
+		61D7C70027C143C4004FFA2E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				61D7C70A27C14AB4004FFA2E /* ChatEncryptionSelectionViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		61D7C70127C14409004FFA2E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				61D7C70827C14AA4004FFA2E /* ChatEncryptionSelectionDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		61D7C70227C14418004FFA2E /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				6141DA4627F113C2004DA95C /* ChatEncryptionSelection.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		61D7C70327C14426004FFA2E /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				61D7C70427C14453004FFA2E /* EncryptionSchemeType.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		61D7C70C27C18066004FFA2E /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				61D7C70D27C1816A004FFA2E /* EncryptionPickerDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		61FE29BF27A6D83500A549A9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				61FE29BD27A6D65A00A549A9 /* EncryptionManagerProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		79C93FDA508F850A0B7BCFC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D29F7C6C4D963F8781113C89 /* Pods-Psms.debug.xcconfig */,
+				2F9F412A201665C7D8CF7A22 /* Pods-Psms.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9C00FE42268EBDBD00896F2F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9C7F5A31268F7FDB00CB82B8 /* UIViewControllerExtension.swift */,
+				9C7F5A2F268F7C7000CB82B8 /* UIColorExtension.swift */,
+				9C00FE43268EBDCA00896F2F /* DateExtension.swift */,
+				9C00FE47268EC02D00896F2F /* StoryboardExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		9C25212426863AFE0056DA53 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				9CEC44C0266BFC2300D91070 /* Info.plist */,
+				9CEC44BD266BFC2300D91070 /* LaunchScreen.storyboard */,
+				9CEC44B2266BFC2200D91070 /* AppDelegate.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		9C25212526863B170056DA53 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9CEC44BB266BFC2300D91070 /* Assets.xcassets */,
+				9C25212626863B7E0056DA53 /* Colors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9C25212A268693F80056DA53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C25212B2686941C0056DA53 /* MessageDTOModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C7F5A15268F437F00CB82B8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9C7F5A16268F438E00CB82B8 /* PopUpViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9C7F5A18268F443400CB82B8 /* CreateChat */ = {
+			isa = PBXGroup;
+			children = (
+				9C7F5A24268F495400CB82B8 /* Protocol */,
+				9C7F5A19268F443400CB82B8 /* Storyboard */,
+				9C7F5A1B268F443400CB82B8 /* Manager */,
+				9C7F5A1E268F443400CB82B8 /* ViewController */,
+			);
+			path = CreateChat;
+			sourceTree = "<group>";
+		};
+		9C7F5A19268F443400CB82B8 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				6141DA4C27F113FF004DA95C /* CreateChat.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9C7F5A1B268F443400CB82B8 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9C7F5A1C268F443400CB82B8 /* CreateChatLayoutManager.swift */,
+				9C7F5A1D268F443400CB82B8 /* CreateChatCoordinatorManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		9C7F5A1E268F443400CB82B8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9C7F5A1F268F443400CB82B8 /* CreateChatViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9C7F5A24268F495400CB82B8 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9C7F5A25268F496800CB82B8 /* CreateChatViewControllerDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		9C7F5A27268F69DC00CB82B8 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				9C7F5A2A268F6C5900CB82B8 /* Manager */,
+				9C7F5A28268F69E600CB82B8 /* ChatViewController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		9C7F5A2A268F6C5900CB82B8 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9C7F5A2B268F6C5900CB82B8 /* ChatCoordinatorManager.swift */,
+				9C7F5A2C268F6C5900CB82B8 /* ChatLayoutManager.swift */,
+				61566CB727FA118600DF45BC /* ChatDataBaseManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		9C8B6826268D011000A8E8EA /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				9C8B683E268D03DA00A8E8EA /* Cell */,
+				9C8B6827268D011000A8E8EA /* DataSource */,
+				9C8B6829268D011000A8E8EA /* Storyboard */,
+				9C8B682B268D011000A8E8EA /* Protocol */,
+				9C8B682F268D011000A8E8EA /* Manager */,
+				9C8B6832268D011000A8E8EA /* Model */,
+				9C8B6834268D011000A8E8EA /* ViewController */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		9C8B6827268D011000A8E8EA /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				9C8B6828268D011000A8E8EA /* ChatListTableViewDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		9C8B6829268D011000A8E8EA /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				6141DA4927F113E6004DA95C /* ChatList.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9C8B682B268D011000A8E8EA /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9C8B682C268D011000A8E8EA /* ChatListTableViewDataSourceDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		9C8B682F268D011000A8E8EA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9C8B6830268D011000A8E8EA /* ChatListLayoutManager.swift */,
+				9C8B6831268D011000A8E8EA /* ChatListCoordinatorManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		9C8B6832268D011000A8E8EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C8B6833268D011000A8E8EA /* ChatListCellModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C8B6834268D011000A8E8EA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9C8B6835268D011000A8E8EA /* ChatListViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9C8B683E268D03DA00A8E8EA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9C8B683F268D03F100A8E8EA /* ChatListTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9C8B6841268D04C800A8E8EA /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				9C00FE45268EBF7200896F2F /* Storyboard.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		9CD9F1192685642000ADBCC7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				61566CB427F9C79100DF45BC /* View */,
+				9C8B6841268D04C800A8E8EA /* Enum */,
+				61FE29BF27A6D83500A549A9 /* Protocol */,
+				6160CBE4279A200C0087163F /* Coordinator */,
+				6116A2C7279A024000DF3E2F /* Manager */,
+				9C7F5A15268F437F00CB82B8 /* ViewController */,
+				9C00FE42268EBDBD00896F2F /* Extension */,
+				9C25212A268693F80056DA53 /* Model */,
+				9C25212526863B170056DA53 /* Resources */,
+				9C25212426863AFE0056DA53 /* Config */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		9CD9F11A2685642600ADBCC7 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				61D7C6FF27C14397004FFA2E /* ChatEncryptionSelection */,
+				6116A2CC279A1C8400DF3E2F /* UnlockPassword */,
+				613D06462799FE17004106F6 /* SecuritySetup */,
+				9C7F5A27268F69DC00CB82B8 /* Chat */,
+				9C7F5A18268F443400CB82B8 /* CreateChat */,
+				9C8B6826268D011000A8E8EA /* ChatList */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		9CEC44A6266BFC2200D91070 = {
+			isa = PBXGroup;
+			children = (
+				9CEC44B1266BFC2200D91070 /* Psms */,
+				9CEC44B0266BFC2200D91070 /* Products */,
+				9CEC44C6266C1A3800D91070 /* Frameworks */,
+				79C93FDA508F850A0B7BCFC9 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		9CEC44B0266BFC2200D91070 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9CEC44AF266BFC2200D91070 /* Psms.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9CEC44B1266BFC2200D91070 /* Psms */ = {
+			isa = PBXGroup;
+			children = (
+				9CD9F1192685642000ADBCC7 /* Core */,
+				9CD9F11A2685642600ADBCC7 /* Groups */,
+			);
+			path = Psms;
+			sourceTree = "<group>";
+		};
+		9CEC44C6266C1A3800D91070 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61FE29CF27A729D400A549A9 /* p_sms.framework */,
+				D89E1D1A7F7C2FE138CC9B62 /* Pods_Psms.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9CEC44AE266BFC2200D91070 /* Psms */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CEC44C3266BFC2300D91070 /* Build configuration list for PBXNativeTarget "Psms" */;
+			buildPhases = (
+				750964D59EE13663706C5929 /* [CP] Check Pods Manifest.lock */,
+				9CEC44AB266BFC2200D91070 /* Sources */,
+				9CEC44AC266BFC2200D91070 /* Frameworks */,
+				9CEC44AD266BFC2200D91070 /* Resources */,
+				B2C3489358EBE438214E5EDC /* [CP] Embed Pods Frameworks */,
+				61FE29CB27A7111000A549A9 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Psms;
+			productName = Psms;
+			productReference = 9CEC44AF266BFC2200D91070 /* Psms.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9CEC44A7266BFC2200D91070 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					9CEC44AE266BFC2200D91070 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = 9CEC44AA266BFC2200D91070 /* Build configuration list for PBXProject "Psms" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ru,
+			);
+			mainGroup = 9CEC44A6266BFC2200D91070;
+			productRefGroup = 9CEC44B0266BFC2200D91070 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9CEC44AE266BFC2200D91070 /* Psms */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9CEC44AD266BFC2200D91070 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6141DA5427F11447004DA95C /* SecuritySetup.storyboard in Resources */,
+				6141DA4E27F113FF004DA95C /* CreateChat.storyboard in Resources */,
+				9CEC44BF266BFC2300D91070 /* LaunchScreen.storyboard in Resources */,
+				6141DA4827F113C2004DA95C /* ChatEncryptionSelection.storyboard in Resources */,
+				9C25212726863B7E0056DA53 /* Colors.xcassets in Resources */,
+				9CEC44BC266BFC2300D91070 /* Assets.xcassets in Resources */,
+				6141DA4B27F113E6004DA95C /* ChatList.storyboard in Resources */,
+				6141DA5727F11457004DA95C /* UnlockPassword.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		750964D59EE13663706C5929 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Psms-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2C3489358EBE438214E5EDC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Psms/Pods-Psms-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Psms/Pods-Psms-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Psms/Pods-Psms-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9CEC44AB266BFC2200D91070 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C7F5A22268F443400CB82B8 /* CreateChatCoordinatorManager.swift in Sources */,
+				61FE29BE27A6D65A00A549A9 /* EncryptionManagerProtocol.swift in Sources */,
+				9C7F5A2D268F6C5900CB82B8 /* ChatCoordinatorManager.swift in Sources */,
+				61D7C70527C14453004FFA2E /* EncryptionSchemeType.swift in Sources */,
+				9C8B6840268D03F100A8E8EA /* ChatListTableViewCell.swift in Sources */,
+				9C00FE46268EBF7200896F2F /* Storyboard.swift in Sources */,
+				9C00FE44268EBDCA00896F2F /* DateExtension.swift in Sources */,
+				9CEC44B3266BFC2200D91070 /* AppDelegate.swift in Sources */,
+				6160CBE6279A20290087163F /* AppCoordinator.swift in Sources */,
+				9C8B6836268D011000A8E8EA /* ChatListTableViewDataSource.swift in Sources */,
+				6116A2C9279A025B00DF3E2F /* KeychainManager.swift in Sources */,
+				61566CB627F9C7A100DF45BC /* RoundedButton.swift in Sources */,
+				9C7F5A21268F443400CB82B8 /* CreateChatLayoutManager.swift in Sources */,
+				9C7F5A30268F7C7000CB82B8 /* UIColorExtension.swift in Sources */,
+				61566CB827FA118600DF45BC /* ChatDataBaseManager.swift in Sources */,
+				9C8B683D268D011000A8E8EA /* ChatListViewController.swift in Sources */,
+				9C8B683B268D011000A8E8EA /* ChatListCoordinatorManager.swift in Sources */,
+				9C7F5A17268F438E00CB82B8 /* PopUpViewController.swift in Sources */,
+				9C25212C2686941C0056DA53 /* MessageDTOModel.swift in Sources */,
+				9C8B6838268D011000A8E8EA /* ChatListTableViewDataSourceDelegate.swift in Sources */,
+				61FE29BC27A6D4E700A549A9 /* EncryptionManager.swift in Sources */,
+				9C7F5A23268F443400CB82B8 /* CreateChatViewController.swift in Sources */,
+				9C8B683C268D011000A8E8EA /* ChatListCellModel.swift in Sources */,
+				9C00FE48268EC02D00896F2F /* StoryboardExtension.swift in Sources */,
+				61D7C70B27C14AB4004FFA2E /* ChatEncryptionSelectionViewController.swift in Sources */,
+				61D7C70927C14AA4004FFA2E /* ChatEncryptionSelectionDelegate.swift in Sources */,
+				9C7F5A26268F496800CB82B8 /* CreateChatViewControllerDelegate.swift in Sources */,
+				9C7F5A29268F69E600CB82B8 /* ChatViewController.swift in Sources */,
+				9C8B683A268D011000A8E8EA /* ChatListLayoutManager.swift in Sources */,
+				9C7F5A32268F7FDC00CB82B8 /* UIViewControllerExtension.swift in Sources */,
+				61D7C70E27C1816A004FFA2E /* EncryptionPickerDataSource.swift in Sources */,
+				613D064B2799FE74004106F6 /* SecuritySetupViewController.swift in Sources */,
+				9C7F5A2E268F6C5900CB82B8 /* ChatLayoutManager.swift in Sources */,
+				6116A2CB279A0ADB00DF3E2F /* AES.swift in Sources */,
+				6116A2D0279A1CD100DF3E2F /* UnlockPasswordViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6141DA4627F113C2004DA95C /* ChatEncryptionSelection.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6141DA4727F113C2004DA95C /* Base */,
+				6184202A27FA4E8D00805B28 /* ru */,
+			);
+			name = ChatEncryptionSelection.storyboard;
+			sourceTree = "<group>";
+		};
+		6141DA4927F113E6004DA95C /* ChatList.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6141DA4A27F113E6004DA95C /* Base */,
+				6184202E27FA4E8E00805B28 /* ru */,
+			);
+			name = ChatList.storyboard;
+			sourceTree = "<group>";
+		};
+		6141DA4C27F113FF004DA95C /* CreateChat.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6141DA4D27F113FF004DA95C /* Base */,
+				6184202D27FA4E8E00805B28 /* ru */,
+			);
+			name = CreateChat.storyboard;
+			sourceTree = "<group>";
+		};
+		6141DA5227F11447004DA95C /* SecuritySetup.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6141DA5327F11447004DA95C /* Base */,
+				6184202C27FA4E8D00805B28 /* ru */,
+			);
+			name = SecuritySetup.storyboard;
+			sourceTree = "<group>";
+		};
+		6141DA5527F11457004DA95C /* UnlockPassword.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6141DA5627F11457004DA95C /* Base */,
+				6184202B27FA4E8D00805B28 /* ru */,
+			);
+			name = UnlockPassword.storyboard;
+			sourceTree = "<group>";
+		};
+		9CEC44BD266BFC2300D91070 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CEC44BE266BFC2300D91070 /* Base */,
+				6184202927FA4E8D00805B28 /* ru */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9CEC44C1266BFC2300D91070 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9CEC44C2266BFC2300D91070 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9CEC44C4266BFC2300D91070 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D29F7C6C4D963F8781113C89 /* Pods-Psms.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Psms/Core/Config/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fdgdfg.hgfhrt.asd;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9CEC44C5266BFC2300D91070 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F9F412A201665C7D8CF7A22 /* Pods-Psms.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Psms/Core/Config/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fdgdfg.hgfhrt.asd;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9CEC44AA266BFC2200D91070 /* Build configuration list for PBXProject "Psms" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CEC44C1266BFC2300D91070 /* Debug */,
+				9CEC44C2266BFC2300D91070 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CEC44C3266BFC2300D91070 /* Build configuration list for PBXNativeTarget "Psms" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CEC44C4266BFC2300D91070 /* Debug */,
+				9CEC44C5266BFC2300D91070 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9CEC44A7266BFC2200D91070 /* Project object */;
+}

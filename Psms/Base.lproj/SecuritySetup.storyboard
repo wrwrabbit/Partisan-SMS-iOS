@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Security Setup View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="SecuritySetupViewController" customModule="Psms" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security setup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rR-Wa-ZVi">
+                                <rect key="frame" x="129.5" y="144" width="155" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmf-h8-6ux">
+                                <rect key="frame" x="20" y="254" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fake password(Deletes all the data)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5rX-uY-Fhf">
+                                <rect key="frame" x="20" y="318" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNt-Ja-1d1" customClass="RoundedButton" customModule="Psms" customModuleProvider="target">
+                                <rect key="frame" x="20" y="412" width="374" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="g2S-kJ-Uzo"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="N8f-Nu-tQK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aNt-Ja-1d1" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="4rU-et-brq"/>
+                            <constraint firstItem="9rR-Wa-ZVi" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="5v4-4b-TYt"/>
+                            <constraint firstItem="fmf-h8-6ux" firstAttribute="top" secondItem="9rR-Wa-ZVi" secondAttribute="bottom" constant="80" id="CcG-aE-1ME"/>
+                            <constraint firstItem="5rX-uY-Fhf" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Fi0-yC-HPQ"/>
+                            <constraint firstItem="aNt-Ja-1d1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="PbR-Rs-Id1"/>
+                            <constraint firstItem="9rR-Wa-ZVi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="X4x-TB-8u6"/>
+                            <constraint firstItem="5rX-uY-Fhf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="bhS-rI-E8f"/>
+                            <constraint firstItem="aNt-Ja-1d1" firstAttribute="top" secondItem="5rX-uY-Fhf" secondAttribute="bottom" constant="60" id="dty-EO-dIe"/>
+                            <constraint firstItem="5rX-uY-Fhf" firstAttribute="top" secondItem="fmf-h8-6ux" secondAttribute="bottom" constant="30" id="gw1-VT-aYI"/>
+                            <constraint firstItem="fmf-h8-6ux" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="poe-YP-d5m"/>
+                            <constraint firstItem="fmf-h8-6ux" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="rZz-Sg-Zl6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fakePasswordTextField" destination="5rX-uY-Fhf" id="GQL-fT-ldC"/>
+                        <outlet property="passwordTextField" destination="fmf-h8-6ux" id="Tj3-SX-cCq"/>
+                        <outlet property="saveButton" destination="aNt-Ja-1d1" id="aB4-hx-XSb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="81"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

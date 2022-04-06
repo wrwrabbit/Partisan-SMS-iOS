@@ -1,0 +1,18 @@
+
+/* Class = "UITextField"; placeholder = "Security key"; ObjectID = "IHF-ua-W71"; */
+"IHF-ua-W71.placeholder" = "Ключ доступа";
+
+/* Class = "UIButton"; normalTitle = "Create"; ObjectID = "o0l-jp-FVz"; */
+"o0l-jp-FVz.normalTitle" = "Создать";
+
+/* Class = "UILabel"; text = "New chat"; ObjectID = "oPp-C5-b1A"; */
+"oPp-C5-b1A.text" = "Новый чат";
+
+/* Class = "UIButton"; configuration.title = "create"; ObjectID = "oTp-uI-lIG"; */
+"oTp-uI-lIG.configuration.title" = "создать";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oTp-uI-lIG"; */
+"oTp-uI-lIG.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "y9n-TW-eth"; */
+"y9n-TW-eth.placeholder" = "Имя чата";

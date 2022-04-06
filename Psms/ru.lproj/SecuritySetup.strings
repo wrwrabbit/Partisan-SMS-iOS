@@ -1,0 +1,12 @@
+
+/* Class = "UITextField"; placeholder = "Fake password(Deletes all the data)"; ObjectID = "5rX-uY-Fhf"; */
+"5rX-uY-Fhf.placeholder" = "Ложный пароль(Удаляет всю информацию)";
+
+/* Class = "UILabel"; text = "Security setup"; ObjectID = "9rR-Wa-ZVi"; */
+"9rR-Wa-ZVi.text" = "Настройка безопасности";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "aNt-Ja-1d1"; */
+"aNt-Ja-1d1.normalTitle" = "Сохранить";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "fmf-h8-6ux"; */
+"fmf-h8-6ux.placeholder" = "Пароль";

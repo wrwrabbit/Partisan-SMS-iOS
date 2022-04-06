@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Encryption"; ObjectID = "E9H-Cd-Q8n"; */
+"E9H-Cd-Q8n.text" = "Шифрование";
+
+/* Class = "UILabel"; text = "Please select encryption method\nThat will change what they look like\n(Afects only outgoing messages)"; ObjectID = "dGN-NE-Nox"; */
+"dGN-NE-Nox.text" = "Выберите метод шифрования\nЭто меняет как будет выглядеть пароль\n(Влияет только на отправляемые сообщения)";
+
+/* Class = "UIButton"; normalTitle = "Apply"; ObjectID = "iq2-9s-zZ1"; */
+"iq2-9s-zZ1.normalTitle" = "Применить";

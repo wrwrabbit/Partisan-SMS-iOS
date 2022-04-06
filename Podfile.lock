@@ -1,0 +1,48 @@
+PODS:
+  - Actions (3.0.1)
+  - EmptyDataSet-Swift (5.0.0)
+  - InputBarAccessoryView (5.4.0):
+    - InputBarAccessoryView/Core (= 5.4.0)
+  - InputBarAccessoryView/Core (5.4.0)
+  - IQKeyboardManagerSwift (6.5.9)
+  - KeychainSwift (19.0.0)
+  - MessageKit (3.7.0):
+    - InputBarAccessoryView (~> 5.4.0)
+  - Realm (10.17.0):
+    - Realm/Headers (= 10.17.0)
+  - Realm/Headers (10.17.0)
+  - RealmSwift (10.17.0):
+    - Realm (= 10.17.0)
+
+DEPENDENCIES:
+  - Actions (~> 3.0.0)
+  - EmptyDataSet-Swift (~> 5.0.0)
+  - IQKeyboardManagerSwift
+  - KeychainSwift (~> 19.0)
+  - MessageKit
+  - RealmSwift
+
+SPEC REPOS:
+  trunk:
+    - Actions
+    - EmptyDataSet-Swift
+    - InputBarAccessoryView
+    - IQKeyboardManagerSwift
+    - KeychainSwift
+    - MessageKit
+    - Realm
+    - RealmSwift
+
+SPEC CHECKSUMS:
+  Actions: 696288b71e88903a69ec8d04123df05ad16125dc
+  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
+  InputBarAccessoryView: 74d471ab1fa1736806be50328df79257e52865a9
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+  KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
+  MessageKit: 8e76dd8d65ad44b49e1651c673497146416461e9
+  Realm: 9533276bd76f66aa2fd0d3ffe700c1f6023dcab6
+  RealmSwift: 57f5d59aa29852587aad1e861989e7af139894b5
+
+PODFILE CHECKSUM: 3eaa3f093d2567977f0e8fed7445d4b6579ac761
+
+COCOAPODS: 1.11.3
