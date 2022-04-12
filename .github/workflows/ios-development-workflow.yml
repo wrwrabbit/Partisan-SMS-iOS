@@ -39,7 +39,6 @@ jobs:
 
       - name: Update the build version
         run: |
-          cd ios
           xcrun agvtool what-version
           xcrun agvtool next-version -all
           xcrun agvtool what-version
@@ -49,7 +48,6 @@ jobs:
           CONFIGURATION: Release
         run: |
           JAVA_HOME=$(/usr/libexec/java_home -v 11)
-          cd ios
           fastlane run build_app scheme:"PsmsDev"
 
       - name: Upload build artifacts
@@ -63,13 +61,11 @@ jobs:
           APP_STORE_CONNECT_USERNAME: ${{ secrets.IOS_APP_STORE_CONNECT_USERNAME }}
           APP_STORE_CONNECT_PASSWORD: ${{ secrets.IOS_APP_STORE_CONNECT_PASSWORD }}
         run: |
-          cd ios
           xcrun altool --upload-app -t ios -f "$PRODUCT_NAME.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
 
       - name: Get the build version
         if: always()
         run: |
-          cd ios
           MARKETING_VERSION="$(xcodebuild -showBuildSettings | grep MARKETING_VERSION | tr -d 'MARKETING_VERSION =')"
           BUILD_VERSION="$(xcodebuild -showBuildSettings | grep CURRENT_PROJECT_VERSION | tr -d 'CURRENT_PROJECT_VERSION =')"
           echo "PROJECT_VERSION=$MARKETING_VERSION($BUILD_VERSION)" >> $GITHUB_ENV
@@ -94,7 +90,6 @@ jobs:
           CONFIGURATION: Release
         run: |
           JAVA_HOME=$(/usr/libexec/java_home -v 11)
-          cd ios
           fastlane run build_app scheme:"PsmsDev"
 
       - name: Upload build artifacts
@@ -108,5 +103,4 @@ jobs:
           APP_STORE_CONNECT_USERNAME: ${{ secrets.IOS_APP_STORE_CONNECT_USERNAME }}
           APP_STORE_CONNECT_PASSWORD: ${{ secrets.IOS_APP_STORE_CONNECT_PASSWORD }}
         run: |
-          cd ios
           xcrun altool --upload-app -t ios -f "$PRODUCT_NAME.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
