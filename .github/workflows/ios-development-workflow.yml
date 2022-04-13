@@ -39,7 +39,12 @@ jobs:
    #       xcrun agvtool what-version
     #      xcrun agvtool next-version -all
     #      xcrun agvtool what-version
-
+        
+    - name: Install Dependencies
+      run: |
+        pod install --repo-update
+      shell: bash
+      
       - name: Build development server app
         env:
           CONFIGURATION: Release
