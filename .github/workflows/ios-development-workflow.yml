@@ -30,7 +30,7 @@ jobs:
 
       - name: Import development provisioning profile
         env:
-          PROVISIONING_PROFILE_DATA: ${{ secrets.DEVELOPMENT_PROVISIONING_PROFILE_DATA }}
+          PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
         run: |
           exec .github/scripts/import-profile.sh
 
@@ -76,28 +76,28 @@ jobs:
        #   git commit -m "bump ios version"
       #    git push origin HEAD
 
-      - name: Import staging provisioning profile
-        env:
-          PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
-        run: |
-          exec .github/scripts/import-profile.sh
+ #     - name: Import staging provisioning profile
+ #       env:
+ #         PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
+ #       run: |
+ #         exec .github/scripts/import-profile.sh
 
-      - name: Build staging server app
-        env:
-          CONFIGURATION: Release
-        run: |
-          JAVA_HOME=$(/usr/libexec/java_home -v 11)
-          fastlane run build_app scheme:"PsmsDev"
+ #     - name: Build staging server app
+ #       env:
+ #         CONFIGURATION: Release
+ #       run: |
+ #         JAVA_HOME=$(/usr/libexec/java_home -v 11)
+ #         fastlane run build_app scheme:"PsmsDev"
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: build.log
-          path: ~/Library/Logs/gym/*.log
+  #    - name: Upload build artifacts
+  #      uses: actions/upload-artifact@v2
+  #      with:
+  #        name: build.log
+  #        path: ~/Library/Logs/gym/*.log
 
-      - name: Upload app to App Store Connect
-        env:
-          APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
-          APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
-        run: |
-          xcrun altool --upload-app -t ios -f "$PRODUCT_NAME.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
+   #   - name: Upload app to App Store Connect
+    #    env:
+    #      APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
+    #      APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
+    #    run: |
+    #      xcrun altool --upload-app -t ios -f "$PRODUCT_NAME.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
