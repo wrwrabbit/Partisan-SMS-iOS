@@ -68,20 +68,20 @@ jobs:
       #    JAVA_HOME=$(/usr/libexec/java_home -v 11)
       #    fastlane run build_app scheme:"PsmsDev"
        
-      - name: Archive
-      run: |
-        mkdir artifacts
-        /usr/bin/xcodebuild archive -workspace "$XC_WORKSPACE" -scheme "$XC_SCHEME" -configuration "$XC_CONFIGURATION" -archivePath "$XC_ARCHIVE_PATH" "OTHER_CODE_SIGN_FLAGS=--keychain build.keychain"
+      #- name: Archive
+      #run: |
+      #  mkdir artifacts
+      #  /usr/bin/xcodebuild archive -workspace "$XC_WORKSPACE" -scheme "$XC_SCHEME" -configuration "$XC_CONFIGURATION" -archivePath "$XC_ARCHIVE_PATH" "OTHER_CODE_SIGN_FLAGS=--keychain build.keychain"
         
-      - name: Export for App Store
-      run: |
-        /usr/bin/xcodebuild -exportArchive -archivePath "$XC_ARCHIVE_PATH" -exportOptionsPlist "$XC_EXPORT_OPTIONS_FILE_PATH" -exportPath "$XC_EXPORT_PATH"
+      #- name: Export for App Store
+      #run: |
+      #  /usr/bin/xcodebuild -exportArchive -archivePath "$XC_ARCHIVE_PATH" -exportOptionsPlist "$XC_EXPORT_OPTIONS_FILE_PATH" -exportPath "$XC_EXPORT_PATH"
         
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v1.0.0
-        with:
-            name: Artifacts
-            path: ./artifacts
+      #- name: Upload artifacts
+      #  uses: actions/upload-artifact@v1.0.0
+      #  with:
+      #      name: Artifacts
+      #      path: ./artifacts
      # - name: Upload build artifacts
      #   uses: actions/upload-artifact@v2
      #   with:
