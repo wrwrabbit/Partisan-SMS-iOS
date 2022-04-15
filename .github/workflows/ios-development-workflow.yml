@@ -51,7 +51,6 @@ jobs:
         run: |
           JAVA_HOME=$(/usr/libexec/java_home -v 11)
           fastlane run build_app scheme:"PsmsDev"
-          cp "$PRODUCT_NAME.ipa" "./artifacts/"
        
       #- name: Archive
       #run: |
@@ -66,7 +65,7 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
             name: Artifacts
-            path: ./artifacts
+            path: $PRODUCT_NAME.ipa
       #- name: Upload build artifacts
        # uses: actions/upload-artifact@v2
        # with:
