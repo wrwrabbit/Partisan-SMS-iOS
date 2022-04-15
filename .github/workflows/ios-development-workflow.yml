@@ -11,22 +11,6 @@ jobs:
   deploy-development-ios:
     runs-on: macos-latest
     
-    env:
-      XC_VERSION: ${{ '11.4' }}
-      XC_SCHEME: ${{ 'PsmsDev' }}
-      XC_CONFIGURATION: ${{ 'Automation' }}
-      XC_WORKSPACE: ${{ 'Psms.xcworkspace' }}
-      XC_ARCHIVE_PATH: ${{ './Psms.xcarchive' }}
-      XC_EXPORT_PATH: ${{ './artifacts/' }}
-      XC_EXPORT_OPTIONS_FILE_PATH: ${{ './ExportOptions.plist' }}
-      ENCRYPTED_CERTS_FILE_PATH: ${{ './certs.p12.gpg' }}
-      DECRYPTED_CERTS_FILE_PATH: ${{ './certs.p12' }}
-      ENCRYPTED_PROVISION_FILE_PATH: ${{ './provisioning.tar.gz.gpg' }}
-      DECRYPTED_PROVISION_FILE_PATH: ${{ './provisioning.tar.gz' }}
-      CERTS_ENCRYPTION_PWD: ${{ secrets.CERTS_ENCRYPTION_PWD }}
-      PROVISION_ENCRYPTION_PWD: ${{ secrets.PROVISION_ENCRYPTION_PWD }}
-      CERTS_EXPORT_PWD: ${{ secrets.CERTS_EXPORT_PWD }}
-      KEYCHAIN: ${{ 'test.keychain' }}
     if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged && startsWith(github.head_ref, 'ios/'))
     
     steps:
@@ -61,12 +45,13 @@ jobs:
             pod install --repo-update
         shell: bash
       
-      #- name: Build development server app
-      #  env:
-      #    CONFIGURATION: Release
-      #  run: |
-      #    JAVA_HOME=$(/usr/libexec/java_home -v 11)
-      #    fastlane run build_app scheme:"PsmsDev"
+      - name: Build development server app
+        env:
+          CONFIGURATION: Release
+        run: |
+          JAVA_HOME=$(/usr/libexec/java_home -v 11)
+          fastlane run build_app scheme:"PsmsDev"
+          cp "$PRODUCT_NAME.ipa" "./artifacts/"
        
       #- name: Archive
       #run: |
@@ -77,17 +62,17 @@ jobs:
       #run: |
       #  /usr/bin/xcodebuild -exportArchive -archivePath "$XC_ARCHIVE_PATH" -exportOptionsPlist "$XC_EXPORT_OPTIONS_FILE_PATH" -exportPath "$XC_EXPORT_PATH"
         
-      #- name: Upload artifacts
-      #  uses: actions/upload-artifact@v1.0.0
-      #  with:
-      #      name: Artifacts
-      #      path: ./artifacts
-     # - name: Upload build artifacts
-     #   uses: actions/upload-artifact@v2
-     #   with:
-     #     name: build.log
-     #     path: ~/Library/Logs/gym/*.log
-
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v1.0.0
+        with:
+            name: Artifacts
+            path: ./artifacts
+      #- name: Upload build artifacts
+       # uses: actions/upload-artifact@v2
+       # with:
+       #   name: build.log
+       #   path: ~/Library/Logs/gym/*.log
+#
      # - name: Upload app to App Store Connect
      #   env:
      #     APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
