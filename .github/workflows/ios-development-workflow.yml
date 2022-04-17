@@ -65,7 +65,7 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
             name: Artifacts
-            path: $PRODUCT_NAME.ipa
+            path: "$PRODUCT_NAME.ipa"
       #- name: Upload build artifacts
        # uses: actions/upload-artifact@v2
        # with:
