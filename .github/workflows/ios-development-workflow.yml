@@ -1,17 +1,14 @@
 name: ios-development
 
 on:
-  pull_request:
-    branches: [ develop ]
-    types: [ closed ]
-
-  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - develop
 
 jobs:
   deploy-development-ios:
     runs-on: macos-latest
-    
-    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged && startsWith(github.head_ref, 'ios/'))
     
     steps:
       - name: Checkout project
