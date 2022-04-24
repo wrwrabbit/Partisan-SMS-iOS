@@ -17,9 +17,9 @@ final class CreateChatViewController: PopUpViewController {
     // - Delegate
     weak var delegate: CreateChatViewControllerDelegate?
     
-    private var isCopyButtonActivated = false {
+    private var isCopyButtonActivated = true {
         didSet {
-            copyButton.setTitle(isCopyButtonActivated ? "copy" : "create", for: .normal)
+            copyButton.setTitle(isCopyButtonActivated ? "Copy".localized : "Create".localized, for: .normal)
         }
     }
 
@@ -113,6 +113,7 @@ private extension CreateChatViewController {
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         createButton.isEnabled = false
+        isCopyButtonActivated.toggle()
     }
     
 }

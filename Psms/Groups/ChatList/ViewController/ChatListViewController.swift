@@ -136,22 +136,9 @@ private extension ChatListViewController {
 extension ChatListViewController: EmptyDataSetSource {
 
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        return NSAttributedString(string: "No chats", attributes: [
-                :
-
-
-                //                                    NSAttributedString.Key.font: UIFont.get(style: .medium, size: 14, font: .sfText),
-                //                                                                               NSAttributedString.Key.foregroundColor: UIColor(red: 37, green: 37, blue: 37, alpha: 0.78)
-
-        ])
+        return NSAttributedString(string: "NoChats".localized, attributes: [:])
     }
 
-//    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-//        let userNameAttributed = NSMutableAttributedString(string: "Please, come back later when\nthe content will be updated", attributes: [NSAttributedString.Key.font: UIFont.get(style: .regular, size: 14, font: .sfText),
-//                                                                                                                                             NSAttributedString.Key.foregroundColor: UIColor(hexString: "8A8A8F")])
-//        return userNameAttributed
-//    }
-//
 }
 
 // MARK: -
