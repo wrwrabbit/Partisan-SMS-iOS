@@ -1,10 +1,9 @@
 name: ios-development
 
-#on:
-#  push:
-#    branches:
-#      - master
-#     - development
+on:
+  push:
+    branches:
+    - Localization-fix
 
 jobs:
   deploy-development-ios:
