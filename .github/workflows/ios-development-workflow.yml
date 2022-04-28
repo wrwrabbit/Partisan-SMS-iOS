@@ -1,6 +1,7 @@
 name: ios-development
 
-on: repository_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
   deploy-development-ios:
