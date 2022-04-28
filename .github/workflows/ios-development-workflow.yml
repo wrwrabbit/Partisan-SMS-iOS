@@ -1,9 +1,6 @@
 name: ios-development
 
-on:
-  push:
-    branches:
-    - Localization-fix
+on: repository_dispatch
 
 jobs:
   deploy-development-ios:
