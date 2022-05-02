@@ -922,9 +922,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.cpartisans.psms.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cpartisans.psms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "CI distribution P-SMS";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -950,9 +950,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.cpartisans.psms.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cpartisans.psms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "CI distribution wildcard P-SMS";
+				PROVISIONING_PROFILE_SPECIFIER = "CI distribution P-SMS";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
