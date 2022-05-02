@@ -32,6 +32,17 @@ jobs:
         run: |
           exec .github/scripts/import-profile.sh
 
+   #   - name: Update the build version
+   #     run: |
+   #       xcrun agvtool what-version
+    #      xcrun agvtool next-version -all
+    #      xcrun agvtool what-version
+    
+      - name: Install Dependencies
+        run: |
+            pod install --repo-update
+        shell: bash
+        
       - name: Build production server app
         env:
           CONFIGURATION: Release
