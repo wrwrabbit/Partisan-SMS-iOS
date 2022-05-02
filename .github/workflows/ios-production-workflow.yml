@@ -37,7 +37,6 @@ jobs:
           CONFIGURATION: Release
         run: |
           JAVA_HOME=$(/usr/libexec/java_home -v 11)
-          cd ios
           fastlane run build_app scheme:"PsmsProd"
 
       - name: Upload build artifacts
