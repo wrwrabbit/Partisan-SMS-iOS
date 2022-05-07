@@ -53,8 +53,8 @@ extension ChatListViewController {
 extension ChatListViewController: ChatListTableViewDataSourceDelegate {
     
     func didTapActions(item: ChatListCellModel) {
-        let actionSheetController = UIAlertController(title: "Actions", message: nil, preferredStyle: .actionSheet)
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {
+        let actionSheetController = UIAlertController(title: "Actions".localized, message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete".localized, style: .destructive) {
             [weak self] _ in
             guard let self = self else { return }
             let realm = try! Realm()
@@ -64,7 +64,7 @@ extension ChatListViewController: ChatListTableViewDataSourceDelegate {
             }
         }
         actionSheetController.addAction(deleteAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) {
             _ in
         }
         actionSheetController.addAction(cancelAction)
