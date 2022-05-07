@@ -63,7 +63,7 @@ final class CreateChatViewController: PopUpViewController {
     
     @objc private func textFieldDidChange(_ textField: UITextField) {
         let name = nameTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
+        let password = (passwordTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         let isEnabled = name.count > 1 && password.count > 3
         createButton.isEnabled = isEnabled
         if textField == passwordTextField, password.isEmpty {
