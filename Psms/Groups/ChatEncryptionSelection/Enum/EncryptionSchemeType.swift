@@ -9,11 +9,11 @@ enum EncryptionSchemeType: Int32, CaseIterable {
     var name: String {
         switch self {
         case .base64:
-            return "base64"
+            return "Base64".localized
         case .base64Cyrillic:
-            return "base64Cyrillic"
+            return "Base64Cyrillic".localized
         case .text:
-            return "text"
+            return "RussianWords".localized
         }
     }
     
