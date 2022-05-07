@@ -250,11 +250,11 @@ private extension ChatViewController {
     func configureObserver() {
         showSpinner()
         messages = dataBaseManager.getMessages()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            [weak self] in
-            guard let self = self else { return }
+       // DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+          
             self.messagesToken = self.messages?.observe {
-                _ in
+                [weak self] _ in
+                guard let self = self else { return }
                 var cellData = [ChatCellModel]()
                 for item in self.messages!.filter({ $0.chatId == self.chat.chatId }) {
                     if let cellModel = self.items.first(where: { $0.messageId == item.messageId }) {
@@ -268,7 +268,7 @@ private extension ChatViewController {
                 self.messagesCollectionView.reloadData()
                 self.removeSpinner()
             }
-        }
+       // }
     }
 
     func configureNavigationBar() {
