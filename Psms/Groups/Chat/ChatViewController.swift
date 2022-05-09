@@ -53,9 +53,11 @@ class ChatViewController: MessagesViewController {
 
     @objc private func checkPasteBoardMessage() {
         if let string = UIPasteboard.general.string,
+           string.count > 2,
            isTextEncrypted(text: string)
         {
             messageInputBar.inputTextView.text = string
+            UIPasteboard.general.string = nil
         }
     }
 
