@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="msgsadasdasdasdasdasdasdasdasdasdasdasdasd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP4-xR-HCA">
-                                                    <rect key="frame" x="35" y="19.5" width="282" height="36"/>
+                                                    <rect key="frame" x="73" y="19.5" width="244" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -40,16 +40,45 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ovm-Jj-9zS">
+                                                    <rect key="frame" x="10" y="9.5" width="56" height="56"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLg-Cv-oiz">
+                                                            <rect key="frame" x="5" y="5" width="46" height="46"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="56" id="2Bh-VW-aIO"/>
+                                                        <constraint firstAttribute="trailing" secondItem="aLg-Cv-oiz" secondAttribute="trailing" constant="5" id="MBZ-Jj-aU2"/>
+                                                        <constraint firstItem="aLg-Cv-oiz" firstAttribute="top" secondItem="Ovm-Jj-9zS" secondAttribute="top" constant="5" id="NDI-mT-ONy"/>
+                                                        <constraint firstAttribute="height" constant="56" id="ao6-LY-eBG"/>
+                                                        <constraint firstAttribute="bottom" secondItem="aLg-Cv-oiz" secondAttribute="bottom" constant="5" id="tQ9-EP-GZ9"/>
+                                                        <constraint firstItem="aLg-Cv-oiz" firstAttribute="leading" secondItem="Ovm-Jj-9zS" secondAttribute="leading" constant="5" id="uMA-uu-7rf"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="28"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="vP4-xR-HCA" firstAttribute="leading" secondItem="jo5-jd-YXg" secondAttribute="leadingMargin" constant="15" id="123-2w-Xev"/>
+                                                <constraint firstItem="vP4-xR-HCA" firstAttribute="leading" secondItem="Ovm-Jj-9zS" secondAttribute="trailingMargin" constant="15" id="123-2w-Xev"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BSo-8L-iAq" secondAttribute="trailing" constant="15" id="4kq-DI-l6M"/>
+                                                <constraint firstItem="Ovm-Jj-9zS" firstAttribute="centerY" secondItem="jo5-jd-YXg" secondAttribute="centerY" id="SBq-AI-7pT"/>
                                                 <constraint firstItem="BSo-8L-iAq" firstAttribute="centerY" secondItem="vP4-xR-HCA" secondAttribute="centerY" id="XBg-dO-xe5"/>
                                                 <constraint firstItem="BSo-8L-iAq" firstAttribute="leading" secondItem="vP4-xR-HCA" secondAttribute="trailing" constant="10" id="cUk-te-eci"/>
                                                 <constraint firstItem="vP4-xR-HCA" firstAttribute="centerY" secondItem="jo5-jd-YXg" secondAttribute="centerY" id="nIn-Jf-q2T"/>
+                                                <constraint firstItem="Ovm-Jj-9zS" firstAttribute="leading" secondItem="jo5-jd-YXg" secondAttribute="leading" constant="10" id="smI-pw-4ll"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="avatarLabel" destination="aLg-Cv-oiz" id="nLI-uf-QLI"/>
+                                            <outlet property="avatarView" destination="Ovm-Jj-9zS" id="sWe-Uv-oDy"/>
                                             <outlet property="dateLabel" destination="BSo-8L-iAq" id="Opd-Bj-gId"/>
                                             <outlet property="nameLabel" destination="vP4-xR-HCA" id="fsd-j4-Fgw"/>
                                         </connections>
@@ -78,6 +107,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
