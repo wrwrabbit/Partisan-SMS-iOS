@@ -266,6 +266,7 @@ private extension ChatViewController {
                 }
                 self.items = cellData
                 self.messagesCollectionView.reloadData()
+                self.messagesCollectionView.scrollToLastItem()
                 self.removeSpinner()
             }
        // }
