@@ -144,6 +144,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         showSpinner()
         messageInputBar.inputTextView.resignFirstResponder()
         messageInputBar.inputTextView.text = String()
+        UIPasteboard.general.string = nil
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             [weak self] in guard let self = self else { return }
             let message = MessageDTOModel()
