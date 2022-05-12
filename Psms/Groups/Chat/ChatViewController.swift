@@ -198,7 +198,11 @@ private extension ChatViewController {
         view.addGestureRecognizer(tapGesture)
         messageInputBar.delegate = self
         messageInputBar.sendButton.image = UIImage(named: "sendButton")
-        messageInputBar.inputTextView.textColor = .black
+        if #available(iOS 13.0, *) {
+            messageInputBar.inputTextView.textColor = .label
+        } else {
+            messageInputBar.inputTextView.textColor = .black
+        }
         messageInputBar.inputTextView.placeholderTextColor = UIColor(hexString: "D8D8D8", alpha: 0.8)
         messageInputBar.isTranslucent = false
         messageInputBar.separatorLine.isHidden = true
