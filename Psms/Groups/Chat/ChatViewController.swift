@@ -119,6 +119,9 @@ extension ChatViewController {
         super.viewDidAppear(animated)
         becomeFirstResponder()
         checkPasteBoardMessage()
+        if messagesToken == nil {
+            configureObserver()
+        }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -177,12 +180,12 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 private extension ChatViewController {
 
     func configure() {
+        showSpinner()
         configureLayoutManager()
         configureCoordinatorManager()
         configureMessageInputBar()
         configureMessageCollectionView()
         configureNavigationBar()
-        configureObserver()
     }
 
     func configureLayoutManager() {
@@ -255,28 +258,32 @@ private extension ChatViewController {
     }
 
     func configureObserver() {
-        showSpinner()
         messages = dataBaseManager.getMessages()
-       // DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-          
-            self.messagesToken = self.messages?.observe {
-                [weak self] _ in
-                guard let self = self else { return }
-                var cellData = [ChatCellModel]()
-                for item in self.messages!.filter({ $0.chatId == self.chat.chatId }) {
-                    if let cellModel = self.items.first(where: { $0.messageId == item.messageId }) {
-                        cellData.append(cellModel)
-                    }
-                    else if let cellModel = ChatCellModel(message: item, key: self.key) {
-                        cellData.append(cellModel)
-                    }
-                }
-                self.items = cellData
-                self.messagesCollectionView.reloadData()
-                self.messagesCollectionView.scrollToLastItem()
-                self.removeSpinner()
+        self.messagesToken = self.messages?.observe {
+            [weak self] _ in
+            guard let self = self else { return }
+            var messages = [MessageDTOModel]()
+            for item in self.messages!.filter({ $0.chatId == self.chat.chatId }) {
+                messages.append(item)
             }
-       // }
+            self.addMessages(messages: messages)
+        }
+    }
+    
+    func addMessages(messages: [MessageDTOModel]) {
+        var cellData = [ChatCellModel]()
+        for item in messages {
+            if let cellModel = self.items.first(where: { $0.messageId == item.messageId }) {
+                cellData.append(cellModel)
+            }
+            else if let cellModel = ChatCellModel(message: item, key: self.key) {
+                cellData.append(cellModel)
+            }
+        }
+        self.items = cellData
+        self.messagesCollectionView.reloadData()
+        self.messagesCollectionView.scrollToLastItem()
+        self.removeSpinner()
     }
 
     func configureNavigationBar() {
@@ -465,7 +472,11 @@ extension ChatViewController: MessagesDisplayDelegate {
 extension ChatViewController: MFMessageComposeViewControllerDelegate {
 
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            [weak self] in
+            self?.becomeFirstResponder()
+            self?.messageInputBar.becomeFirstResponder()
+        }
     }
 
 }
