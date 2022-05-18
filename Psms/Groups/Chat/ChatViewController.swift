@@ -273,17 +273,17 @@ private extension ChatViewController {
     func addMessages(messages: [MessageDTOModel]) {
         var cellData = [ChatCellModel]()
         for item in messages {
-            if let cellModel = self.items.first(where: { $0.messageId == item.messageId }) {
+            if let cellModel = items.first(where: { $0.messageId == item.messageId }) {
                 cellData.append(cellModel)
             }
-            else if let cellModel = ChatCellModel(message: item, key: self.key) {
+            else if let cellModel = ChatCellModel(message: item, key: key) {
                 cellData.append(cellModel)
             }
         }
-        self.items = cellData
-        self.messagesCollectionView.reloadData()
-        self.messagesCollectionView.scrollToLastItem()
-        self.removeSpinner()
+        items = cellData
+        messagesCollectionView.reloadData()
+        messagesCollectionView.scrollToLastItem(at: .centeredVertically, animated: false)
+        removeSpinner()
     }
 
     func configureNavigationBar() {
@@ -392,7 +392,7 @@ extension ChatViewController: MessagesDataSource {
 
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         if isTimeLabelVisible(at: indexPath) {
-            return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray])
+            return NSAttributedString(string: ChatDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray])
         }
         return nil
     }
