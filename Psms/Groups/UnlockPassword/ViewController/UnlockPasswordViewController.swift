@@ -16,7 +16,10 @@ class UnlockPasswordViewController: UIViewController {
            password.count > 3 {
             if KeychainManager.shared.fakePassword == password {
                 KeychainManager.shared.clearKeychain()
-                try? Realm().deleteAll()
+                let realm = try! Realm()
+                try? realm.write {
+                    realm.deleteAll()
+                }
             }
             else {
                 KeychainManager.shared.appPassword = password
