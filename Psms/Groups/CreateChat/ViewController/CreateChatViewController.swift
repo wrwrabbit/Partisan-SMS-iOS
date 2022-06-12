@@ -114,6 +114,7 @@ private extension CreateChatViewController {
         nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         createButton.isEnabled = false
         isCopyButtonActivated.toggle()
+        createButton.setTitle("Save".localized, for: .normal)
     }
     
 }

@@ -8,6 +8,7 @@ enum Storyboard: String {
     case securitySetup = "SecuritySetup"
     case chatEncryptionSelection = "ChatEncryptionSelection"
     case launchScreen = "LaunchScreen"
+    case onboarding = "Onboarding"
 
     var fileName: String {
         return rawValue
