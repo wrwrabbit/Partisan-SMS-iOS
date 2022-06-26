@@ -75,6 +75,14 @@ class OnboardingViewController: UIViewController {
             frame.size.width = UIScreen.main.bounds.width
             
             imageView.image = UIImage(named: slides[i].imageName)
+            if i == slides.count - 1 {
+                imageView.contentMode = .scaleAspectFill
+            }
+            imageView.layer.cornerRadius = 15
+            imageView.layer.borderColor = UIColor.black.cgColor
+            imageView.layer.borderWidth = 1.5
+            
+            
             scrollView.insertSubview(imageView, at: 0)
             NSLayoutConstraint.activate([
                 imageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 0.6, constant: 0),
