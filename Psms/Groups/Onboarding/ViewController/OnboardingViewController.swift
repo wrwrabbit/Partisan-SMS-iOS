@@ -81,6 +81,7 @@ class OnboardingViewController: UIViewController {
             imageView.layer.cornerRadius = 15
             imageView.layer.borderColor = UIColor.black.cgColor
             imageView.layer.borderWidth = 1.5
+            imageView.backgroundColor = .white
             
             
             scrollView.insertSubview(imageView, at: 0)
