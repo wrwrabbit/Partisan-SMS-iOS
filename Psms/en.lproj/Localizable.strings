@@ -1,0 +1,18 @@
+"NoChats" = "No chats";
+"Create" = "create";
+"Copy" = "copy";
+"Delete" = "Delete";
+"Actions" = "Actions";
+"Cancel" = "Cancel";
+"Base64Cyrillic" = "Base64 cyrillic";
+"Base64" = "Base64";
+"RussianWords" = "Russian words";
+"Message" = "Message";
+"Save" = "Save";
+"Slide1" = "Encrypt and decrypt secure messages and use it anywhere! It's stored secured in the app, nobody can decrypt it, emergency fake password entered deletes all the data!";
+"Slide2" = "Create a new chat in several seconds, if you have encryption key just paste it, if not just click \"create\" and share it with your chat participants";
+"Slide3" = "If you want to encrypt a new message just type it in the message box. App will let you send it via SMS or just copy your message";
+"Slide4" = "If you somewhere recieved encrypted message just copy it to clipboard in order to decrypt and store it in a chat";
+"Next" = "Next";
+"Finish" = "Finish";
+

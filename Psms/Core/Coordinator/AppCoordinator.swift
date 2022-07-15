@@ -7,7 +7,7 @@ class AppCoordinator {
         appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
         appDelegate.window?.makeKeyAndVisible()
         if KeychainManager.shared.fakePassword == nil {
-            appDelegate.window?.rootViewController = UIStoryboard(storyboard: .securitySetup).instantiateInitialViewController()!
+            appDelegate.window?.rootViewController = UIStoryboard(storyboard: .onboarding).instantiateInitialViewController()!
         }
         else {
             appDelegate.window?.rootViewController = UIStoryboard(storyboard: .unlockPassword).instantiateInitialViewController()!

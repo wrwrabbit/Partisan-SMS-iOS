@@ -17,9 +17,9 @@ final class CreateChatViewController: PopUpViewController {
     // - Delegate
     weak var delegate: CreateChatViewControllerDelegate?
     
-    private var isCopyButtonActivated = false {
+    private var isCopyButtonActivated = true {
         didSet {
-            copyButton.setTitle(isCopyButtonActivated ? "copy" : "create", for: .normal)
+            copyButton.setTitle(isCopyButtonActivated ? "Copy".localized : "Create".localized, for: .normal)
         }
     }
 
@@ -63,7 +63,7 @@ final class CreateChatViewController: PopUpViewController {
     
     @objc private func textFieldDidChange(_ textField: UITextField) {
         let name = nameTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
+        let password = (passwordTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         let isEnabled = name.count > 1 && password.count > 3
         createButton.isEnabled = isEnabled
         if textField == passwordTextField, password.isEmpty {
@@ -113,6 +113,8 @@ private extension CreateChatViewController {
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         createButton.isEnabled = false
+        isCopyButtonActivated.toggle()
+        createButton.setTitle("Save".localized, for: .normal)
     }
     
 }

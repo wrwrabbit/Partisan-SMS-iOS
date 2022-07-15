@@ -1,24 +1,15 @@
 name: ios-development
 
 on:
-  pull_request:
-    branches: [ develop ]
-    types: [ closed ]
-
   workflow_dispatch:
 
 jobs:
   deploy-development-ios:
     runs-on: macos-latest
-
-    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged && startsWith(github.head_ref, 'ios/'))
     
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
-
-      - name: Set CI gradle.properties
-        run: cp gradle.properties.ci gradle.properties
 
       - name: Set environment variables from project settings
         run: |
@@ -26,87 +17,100 @@ jobs:
 
       - name: Import signing certificate
         env:
-          SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.IOS_SIGNING_CERTIFICATE_P12_DATA }}
-          SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.IOS_SIGNING_CERTIFICATE_PASSWORD }}
+          SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
+          SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
         run: |
           exec .github/scripts/import-certificate.sh
 
       - name: Import development provisioning profile
         env:
-          PROVISIONING_PROFILE_DATA: ${{ secrets.IOS_DEVELOPMENT_PROVISIONING_PROFILE_DATA }}
+          PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
         run: |
           exec .github/scripts/import-profile.sh
 
-      - name: Update the build version
+   #   - name: Update the build version
+   #     run: |
+   #       xcrun agvtool what-version
+    #      xcrun agvtool next-version -all
+    #      xcrun agvtool what-version
+        
+      - name: Install Dependencies
         run: |
-          cd ios
-          xcrun agvtool what-version
-          xcrun agvtool next-version -all
-          xcrun agvtool what-version
-
+            pod install --repo-update
+        shell: bash
+      
       - name: Build development server app
         env:
           CONFIGURATION: Release
         run: |
           JAVA_HOME=$(/usr/libexec/java_home -v 11)
-          cd ios
           fastlane run build_app scheme:"PsmsDev"
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
+       
+      #- name: Archive
+      #run: |
+      #  mkdir artifacts
+      #  /usr/bin/xcodebuild archive -workspace "$XC_WORKSPACE" -scheme "$XC_SCHEME" -configuration "$XC_CONFIGURATION" -archivePath "$XC_ARCHIVE_PATH" "OTHER_CODE_SIGN_FLAGS=--keychain build.keychain"
+        
+      #- name: Export for App Store
+      #run: |
+      #  /usr/bin/xcodebuild -exportArchive -archivePath "$XC_ARCHIVE_PATH" -exportOptionsPlist "$XC_EXPORT_OPTIONS_FILE_PATH" -exportPath "$XC_EXPORT_PATH"
+        
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v1.0.0
         with:
-          name: build.log
-          path: ~/Library/Logs/gym/*.log
-
-      - name: Upload app to App Store Connect
-        env:
-          APP_STORE_CONNECT_USERNAME: ${{ secrets.IOS_APP_STORE_CONNECT_USERNAME }}
-          APP_STORE_CONNECT_PASSWORD: ${{ secrets.IOS_APP_STORE_CONNECT_PASSWORD }}
-        run: |
-          cd ios
-          xcrun altool --upload-app -t ios -f "$PRODUCT_NAME.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
+            name: Psms.ipa
+            path: Psms.ipa
+      #- name: Upload build artifacts
+       # uses: actions/upload-artifact@v2
+       # with:
+       #   name: build.log
+       #   path: ~/Library/Logs/gym/*.log
+#
+     # - name: Upload app to App Store Connect
+     #   env:
+     #     APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
+     #     APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
+      #  run: |
+      #    xcrun altool --upload-app -t ios -f "$PRODUCT_NAME.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
 
       - name: Get the build version
         if: always()
         run: |
-          cd ios
           MARKETING_VERSION="$(xcodebuild -showBuildSettings | grep MARKETING_VERSION | tr -d 'MARKETING_VERSION =')"
           BUILD_VERSION="$(xcodebuild -showBuildSettings | grep CURRENT_PROJECT_VERSION | tr -d 'CURRENT_PROJECT_VERSION =')"
           echo "PROJECT_VERSION=$MARKETING_VERSION($BUILD_VERSION)" >> $GITHUB_ENV
 
-      - name: Upload the build version to the GitHub repositoty
-        if: success()
-        id: github_build_version_update
-        run: |
-          git status
-          git add .
-          git commit -m "bump ios version"
-          git push origin HEAD
+     # - name: Upload the build version to the GitHub repositoty
+     #   if: success()
+      #  id: github_build_version_update
+      #  run: |
+      #    git status
+      #    git add .
+       #   git commit -m "bump ios version"
+      #    git push origin HEAD
 
-      - name: Import staging provisioning profile
-        env:
-          PROVISIONING_PROFILE_DATA: ${{ secrets.IOS_STAGING_PROVISIONING_PROFILE_DATA }}
-        run: |
-          exec .github/scripts/import-profile.sh
+ #     - name: Import staging provisioning profile
+ #       env:
+ #         PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
+ #       run: |
+ #         exec .github/scripts/import-profile.sh
 
-      - name: Build staging server app
-        env:
-          CONFIGURATION: Release
-        run: |
-          JAVA_HOME=$(/usr/libexec/java_home -v 11)
-          cd ios
-          fastlane run build_app scheme:"PsmsDev"
+ #     - name: Build staging server app
+ #       env:
+ #         CONFIGURATION: Release
+ #       run: |
+ #         JAVA_HOME=$(/usr/libexec/java_home -v 11)
+ #         fastlane run build_app scheme:"PsmsDev"
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: build.log
-          path: ~/Library/Logs/gym/*.log
+  #    - name: Upload build artifacts
+  #      uses: actions/upload-artifact@v2
+  #      with:
+  #        name: build.log
+  #        path: ~/Library/Logs/gym/*.log
 
-      - name: Upload app to App Store Connect
-        env:
-          APP_STORE_CONNECT_USERNAME: ${{ secrets.IOS_APP_STORE_CONNECT_USERNAME }}
-          APP_STORE_CONNECT_PASSWORD: ${{ secrets.IOS_APP_STORE_CONNECT_PASSWORD }}
-        run: |
-          cd ios
-          xcrun altool --upload-app -t ios -f "$PRODUCT_NAME.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
+   #   - name: Upload app to App Store Connect
+    #    env:
+    #      APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
+    #      APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
+    #    run: |
+    #      xcrun altool --upload-app -t ios -f "$PRODUCT_NAME.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"

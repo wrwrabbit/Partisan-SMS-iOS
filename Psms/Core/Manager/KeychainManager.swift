@@ -10,10 +10,10 @@ class KeychainManager {
     
     var fakePassword: String? {
         get {
-            keychain.get(#function)
+            UserDefaults.standard.string(forKey: #function)
         }
         set {
-            keychain.set(newValue ?? "", forKey: #function)
+            UserDefaults.standard.setValue(newValue ?? "", forKey: #function)
         }
     }
     

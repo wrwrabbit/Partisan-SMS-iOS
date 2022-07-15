@@ -53,9 +53,11 @@ class ChatViewController: MessagesViewController {
 
     @objc private func checkPasteBoardMessage() {
         if let string = UIPasteboard.general.string,
+           string.count > 2,
            isTextEncrypted(text: string)
         {
             messageInputBar.inputTextView.text = string
+            UIPasteboard.general.string = nil
         }
     }
 
@@ -117,6 +119,9 @@ extension ChatViewController {
         super.viewDidAppear(animated)
         becomeFirstResponder()
         checkPasteBoardMessage()
+        if messagesToken == nil {
+            configureObserver()
+        }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -142,6 +147,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         showSpinner()
         messageInputBar.inputTextView.resignFirstResponder()
         messageInputBar.inputTextView.text = String()
+        UIPasteboard.general.string = nil
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             [weak self] in guard let self = self else { return }
             let message = MessageDTOModel()
@@ -174,12 +180,12 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 private extension ChatViewController {
 
     func configure() {
+        showSpinner()
         configureLayoutManager()
         configureCoordinatorManager()
         configureMessageInputBar()
         configureMessageCollectionView()
         configureNavigationBar()
-        configureObserver()
     }
 
     func configureLayoutManager() {
@@ -196,7 +202,11 @@ private extension ChatViewController {
         view.addGestureRecognizer(tapGesture)
         messageInputBar.delegate = self
         messageInputBar.sendButton.image = UIImage(named: "sendButton")
-        messageInputBar.inputTextView.textColor = UIColor(hexString: "D8D8D8", alpha: 1)
+        if #available(iOS 13.0, *) {
+            messageInputBar.inputTextView.textColor = .label
+        } else {
+            messageInputBar.inputTextView.textColor = .black
+        }
         messageInputBar.inputTextView.placeholderTextColor = UIColor(hexString: "D8D8D8", alpha: 0.8)
         messageInputBar.isTranslucent = false
         messageInputBar.separatorLine.isHidden = true
@@ -221,7 +231,7 @@ private extension ChatViewController {
         messageInputBar.sendButton.title = "Comment"
         messageInputBar.sendButton.imageView?.layer.cornerRadius = 16
         messageInputBar.middleContentViewPadding.right = 17
-        messageInputBar.inputTextView.placeholderLabel.text = "Message"
+        messageInputBar.inputTextView.placeholderLabel.text = "Message".localized
         messageInputBar.sendButton
             .onEnabled {
                 [weak self] item in
@@ -248,27 +258,32 @@ private extension ChatViewController {
     }
 
     func configureObserver() {
-        showSpinner()
         messages = dataBaseManager.getMessages()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            [weak self] in
+        self.messagesToken = self.messages?.observe {
+            [weak self] _ in
             guard let self = self else { return }
-            self.messagesToken = self.messages?.observe {
-                _ in
-                var cellData = [ChatCellModel]()
-                for item in self.messages!.filter({ $0.chatId == self.chat.chatId }) {
-                    if let cellModel = self.items.first(where: { $0.messageId == item.messageId }) {
-                        cellData.append(cellModel)
-                    }
-                    else if let cellModel = ChatCellModel(message: item, key: self.key) {
-                        cellData.append(cellModel)
-                    }
-                }
-                self.items = cellData
-                self.messagesCollectionView.reloadData()
-                self.removeSpinner()
+            var messages = [MessageDTOModel]()
+            for item in self.messages!.filter({ $0.chatId == self.chat.chatId }) {
+                messages.append(item)
+            }
+            self.addMessages(messages: messages)
+        }
+    }
+    
+    func addMessages(messages: [MessageDTOModel]) {
+        var cellData = [ChatCellModel]()
+        for item in messages {
+            if let cellModel = items.first(where: { $0.messageId == item.messageId }) {
+                cellData.append(cellModel)
+            }
+            else if let cellModel = ChatCellModel(message: item, key: key) {
+                cellData.append(cellModel)
             }
         }
+        items = cellData
+        messagesCollectionView.reloadData()
+        messagesCollectionView.scrollToLastItem(at: .centeredVertically, animated: false)
+        removeSpinner()
     }
 
     func configureNavigationBar() {
@@ -377,7 +392,7 @@ extension ChatViewController: MessagesDataSource {
 
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         if isTimeLabelVisible(at: indexPath) {
-            return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray])
+            return NSAttributedString(string: ChatDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray])
         }
         return nil
     }
@@ -457,7 +472,11 @@ extension ChatViewController: MessagesDisplayDelegate {
 extension ChatViewController: MFMessageComposeViewControllerDelegate {
 
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            [weak self] in
+            self?.becomeFirstResponder()
+            self?.messageInputBar.becomeFirstResponder()
+        }
     }
 
 }

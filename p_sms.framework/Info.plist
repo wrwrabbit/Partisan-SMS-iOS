@@ -5,7 +5,7 @@
     <key>CFBundleExecutable</key>
     <string>p_sms</string>
     <key>CFBundleIdentifier</key>
-    <string>by.cyberpartisan.psms.p_sms</string>
+    <string>org.cpartisan.psms</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>

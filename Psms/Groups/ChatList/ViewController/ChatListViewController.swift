@@ -53,8 +53,8 @@ extension ChatListViewController {
 extension ChatListViewController: ChatListTableViewDataSourceDelegate {
     
     func didTapActions(item: ChatListCellModel) {
-        let actionSheetController = UIAlertController(title: "Actions", message: nil, preferredStyle: .actionSheet)
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {
+        let actionSheetController = UIAlertController(title: "Actions".localized, message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete".localized, style: .destructive) {
             [weak self] _ in
             guard let self = self else { return }
             let realm = try! Realm()
@@ -64,7 +64,7 @@ extension ChatListViewController: ChatListTableViewDataSourceDelegate {
             }
         }
         actionSheetController.addAction(deleteAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) {
             _ in
         }
         actionSheetController.addAction(cancelAction)
@@ -136,22 +136,9 @@ private extension ChatListViewController {
 extension ChatListViewController: EmptyDataSetSource {
 
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        return NSAttributedString(string: "No chats", attributes: [
-                :
-
-
-                //                                    NSAttributedString.Key.font: UIFont.get(style: .medium, size: 14, font: .sfText),
-                //                                                                               NSAttributedString.Key.foregroundColor: UIColor(red: 37, green: 37, blue: 37, alpha: 0.78)
-
-        ])
+        return NSAttributedString(string: "NoChats".localized, attributes: [:])
     }
 
-//    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-//        let userNameAttributed = NSMutableAttributedString(string: "Please, come back later when\nthe content will be updated", attributes: [NSAttributedString.Key.font: UIFont.get(style: .regular, size: 14, font: .sfText),
-//                                                                                                                                             NSAttributedString.Key.foregroundColor: UIColor(hexString: "8A8A8F")])
-//        return userNameAttributed
-//    }
-//
 }
 
 // MARK: -
