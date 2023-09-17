@@ -1,6 +1,6 @@
 import UIKit
 
-class ChatListLayoutManager: NSObject {
+final class ChatListLayoutManager: NSObject {
 
     // - UI
     private unowned let viewController: ChatListViewController

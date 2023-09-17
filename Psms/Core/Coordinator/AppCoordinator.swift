@@ -1,6 +1,6 @@
 import UIKit
 
-class AppCoordinator {
+final class AppCoordinator {
     
     func start() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

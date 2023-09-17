@@ -1,6 +1,6 @@
 import UIKit
 
-class RoundedButton: UIButton {
+final class RoundedButton: UIButton {
 
     override var isEnabled: Bool {
         didSet {

@@ -1,6 +1,6 @@
 import UIKit
 
-class CreateChatLayoutManager: NSObject {
+final class CreateChatLayoutManager: NSObject {
 
     // - UI
     private unowned let viewController: CreateChatViewController

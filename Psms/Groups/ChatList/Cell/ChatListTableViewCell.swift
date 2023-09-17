@@ -1,6 +1,6 @@
 import UIKit
 
-class ChatListTableViewCell: UITableViewCell {
+final class ChatListTableViewCell: UITableViewCell {
 
     // - UI
     @IBOutlet weak var avatarView: UIView!

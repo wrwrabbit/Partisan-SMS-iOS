@@ -1,6 +1,6 @@
 import UIKit
 
-class OnboardingViewController: UIViewController {
+final class OnboardingViewController: UIViewController {
     
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet var contentView: UIView!
@@ -17,8 +17,9 @@ class OnboardingViewController: UIViewController {
             }
         }
     }
-    let slides = OnboardingSliderEnum.allCases
-    var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+    private let slides = OnboardingSliderEnum.allCases
+    private var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,7 +51,7 @@ class OnboardingViewController: UIViewController {
         presentInFullScreen(UIStoryboard(storyboard: .securitySetup).instantiateInitialViewController()!, animated: true)
     }
     
-    func setupImages() {
+    private func setupImages() {
         pageControl.numberOfPages = slides.count
         for i in 0..<slides.count {
             let imageView: UIImageView = {
@@ -102,7 +103,10 @@ class OnboardingViewController: UIViewController {
     }
 }
 
+// MARK: - UIScrollViewDelegate
+
 extension OnboardingViewController: UIScrollViewDelegate {
+
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         page = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = page
@@ -119,4 +123,5 @@ extension OnboardingViewController: UIScrollViewDelegate {
             scrollView.contentOffset.x = UIScreen.main.bounds.width * CGFloat(slides.count)
         }
     }
+
 }

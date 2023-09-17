@@ -3,7 +3,7 @@ import EmptyDataSet_Swift
 import RealmSwift
 import UIKit
 
-class ChatListViewController: UIViewController {
+final class ChatListViewController: UIViewController {
 
     // - UI
     @IBOutlet var tableView: UITableView!
