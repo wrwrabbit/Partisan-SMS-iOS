@@ -1,6 +1,6 @@
 import UIKit
 
-class ChatEncryptionSelectionViewController: PopUpViewController {
+final class ChatEncryptionSelectionViewController: PopUpViewController {
     // - UI
     @IBOutlet weak var picker: UIPickerView!
     
@@ -49,7 +49,7 @@ private extension ChatEncryptionSelectionViewController {
 }
 
 // MARK: -
-// MARK: - Configure
+// MARK: - ChatEncryptionSelectionDelegate
 
 extension ChatEncryptionSelectionViewController: ChatEncryptionSelectionDelegate {
     

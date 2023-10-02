@@ -2,7 +2,7 @@ import UIKit
 import Contacts
 import MessageUI
 
-class ChatCoordinatorManager {
+final class ChatCoordinatorManager {
 
     // - UI
     private unowned let viewController: ChatViewController

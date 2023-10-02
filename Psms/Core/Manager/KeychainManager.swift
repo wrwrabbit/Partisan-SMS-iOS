@@ -1,11 +1,11 @@
 import KeychainSwift
 import CommonCrypto
 
-class KeychainManager {
+final class KeychainManager {
     
     static let shared = KeychainManager()
-    let keychain = KeychainSwift()
-    var encryptor: EncryptionManagerProtocol = EncryptionManager()
+    private let keychain = KeychainSwift()
+    private var encryptor: EncryptionManagerProtocol = EncryptionManager()
     var appPassword: String?
     
     var fakePassword: String? {

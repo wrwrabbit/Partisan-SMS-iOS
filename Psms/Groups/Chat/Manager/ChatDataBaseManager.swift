@@ -1,7 +1,7 @@
 
 import RealmSwift
 
-class ChatDataBaseManager {
+final class ChatDataBaseManager {
     
     // - Realm
     private lazy var realm = try! Realm()

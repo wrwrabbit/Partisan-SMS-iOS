@@ -1,6 +1,6 @@
 import UIKit
 
-class CreateChatCoordinatorManager {
+final class CreateChatCoordinatorManager {
 
     // - UI
     private unowned let viewController: CreateChatViewController

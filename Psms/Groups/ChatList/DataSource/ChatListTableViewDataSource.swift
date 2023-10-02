@@ -1,6 +1,6 @@
 import UIKit
 
-class ChatListTableViewDataSource: NSObject {
+final class ChatListTableViewDataSource: NSObject {
 
        // - Init
        private unowned let tableView: UITableView

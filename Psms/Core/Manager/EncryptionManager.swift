@@ -2,7 +2,7 @@ import Foundation
 import CommonCrypto
 import p_sms
 
-class EncryptionManager: EncryptionManagerProtocol {
+final class EncryptionManager: EncryptionManagerProtocol {
     
     func generateKey() -> String {
         var bytes = [UInt8](repeating: 0, count: 32)

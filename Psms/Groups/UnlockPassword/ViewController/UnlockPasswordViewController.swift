@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class UnlockPasswordViewController: UIViewController {
+final class UnlockPasswordViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var goButton: UIButton!
     

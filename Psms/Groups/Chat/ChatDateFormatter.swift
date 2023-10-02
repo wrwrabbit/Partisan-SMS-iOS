@@ -1,6 +1,6 @@
 import MessageKit
 
-class ChatDateFormatter {
+final class ChatDateFormatter {
 
     // MARK: - Properties
 
@@ -24,7 +24,7 @@ class ChatDateFormatter {
         return NSAttributedString(string: dateString, attributes: attributes)
     }
 
-    open func configureDateFormatter(for date: Date) {
+    public func configureDateFormatter(for date: Date) {
         switch true {
         case Calendar.current.isDateInToday(date) || Calendar.current.isDateInYesterday(date):
             formatter.doesRelativeDateFormatting = true

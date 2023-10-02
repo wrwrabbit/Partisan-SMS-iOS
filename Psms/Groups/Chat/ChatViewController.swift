@@ -5,7 +5,7 @@ import RealmSwift
 import p_sms
 import MessageUI
 
-class ChatViewController: MessagesViewController {
+final class ChatViewController: MessagesViewController {
 
     // - UI
     @IBOutlet var containerView: UIView!
@@ -84,6 +84,9 @@ class ChatViewController: MessagesViewController {
     }
 
 }
+
+// MARK: -
+// MARK: - delete cell
 
 extension MessageCollectionViewCell {
 
