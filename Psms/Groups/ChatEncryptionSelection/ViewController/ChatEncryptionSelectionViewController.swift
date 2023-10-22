@@ -1,7 +1,10 @@
 import UIKit
+import EFQRCode
 
-final class ChatEncryptionSelectionViewController: PopUpViewController {
+final class ChatEncryptionSelectionViewController: UIViewController {
     // - UI
+    @IBOutlet weak var copyButton: UIButton!
+    @IBOutlet weak var qrCodeImageView: UIImageView!
     @IBOutlet weak var picker: UIPickerView!
     
     // - DataSource
@@ -10,7 +13,11 @@ final class ChatEncryptionSelectionViewController: PopUpViewController {
     // - Delegate
     private weak var delegate: ChatEncryptionSelectionDelegate?
     
+    // - Manager
+    private var layoutManager: ChatEncryptionSelectionLayoutManager!
+    
     private var selectedScheme = EncryptionSchemeType.text
+    private var securityKey = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +29,14 @@ final class ChatEncryptionSelectionViewController: PopUpViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func setup(initialEncryptionScheme: EncryptionSchemeType, delegate: ChatEncryptionSelectionDelegate) {
+    func setup(initialEncryptionScheme: EncryptionSchemeType, delegate: ChatEncryptionSelectionDelegate, securityKey: String) {
         self.selectedScheme = initialEncryptionScheme
         self.delegate = delegate
+        self.securityKey = securityKey
+    }
+
+    @IBAction func copyKeyButtonAction(_ sender: Any) {
+        UIPasteboard.general.string = securityKey
     }
     
 }
@@ -37,6 +49,8 @@ private extension ChatEncryptionSelectionViewController {
 
     func configure() {
         configureDataSource()
+        configureQRCodeImageView()
+        configureLayoutManager()
     }
     
     func configureDataSource() {
@@ -44,6 +58,35 @@ private extension ChatEncryptionSelectionViewController {
         dataSource.delegate = self
         dataSource.updateItems(items: EncryptionSchemeType.allCases)
         picker.selectRow(EncryptionSchemeType.allCases.firstIndex(of: selectedScheme) ?? 0, inComponent: 0, animated: false)
+    }
+    
+    func configureQRCodeImageView() {
+        if let image = EFQRCode.generate(
+            for: securityKey
+        ) {
+            qrCodeImageView.image = UIImage(cgImage: image)
+        }
+    }
+    
+    func configureLayoutManager() {
+        layoutManager = ChatEncryptionSelectionLayoutManager(viewController: self)
+    }
+
+}
+
+// MARK: -
+// MARK: - ViewController Lifecycle
+
+extension ChatEncryptionSelectionViewController {
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        layoutManager.viewWillAppear(animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        layoutManager.viewWillDisappear(animated)
     }
 
 }

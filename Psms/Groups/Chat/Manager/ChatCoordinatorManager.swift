@@ -21,9 +21,9 @@ final class ChatCoordinatorManager {
     
     func showEncryptionSelection(initialEncryptionScheme: EncryptionSchemeType) {
         let vc = UIStoryboard(storyboard: .chatEncryptionSelection).instantiateInitialViewController() as! ChatEncryptionSelectionViewController
-        vc.setup(initialEncryptionScheme: initialEncryptionScheme, delegate: viewController)
-        vc.modalPresentationStyle = .custom
-        viewController.present(vc, animated: true, completion: nil)
+        vc.setup(initialEncryptionScheme: initialEncryptionScheme, delegate: viewController, securityKey: viewController.key)
+        vc.modalPresentationStyle = .fullScreen
+        viewController.pushInFullScreen(vc, animated: true)
     }
 
 }
