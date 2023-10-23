@@ -12,6 +12,7 @@ target 'Psms' do
   pod 'EmptyDataSet-Swift', '~> 5.0.0'
   pod 'Actions', '~> 3.0.0'
   pod 'IQKeyboardManagerSwift'
+  pod 'EFQRCode', '~> 6.2.1'
 end
 
 post_install do |installer|

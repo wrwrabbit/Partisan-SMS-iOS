@@ -59,6 +59,7 @@
 		9CEC44B3266BFC2200D91070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC44B2266BFC2200D91070 /* AppDelegate.swift */; };
 		9CEC44BC266BFC2300D91070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC44BB266BFC2300D91070 /* Assets.xcassets */; };
 		9CEC44BF266BFC2300D91070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC44BD266BFC2300D91070 /* LaunchScreen.storyboard */; };
+		CE66A0562AE5D7EC00E4F029 /* ChatEncryptionSelectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66A0552AE5D7EC00E4F029 /* ChatEncryptionSelectionLayoutManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -136,6 +137,7 @@
 		9CEC44BB266BFC2300D91070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CEC44BE266BFC2300D91070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CEC44C0266BFC2300D91070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE66A0552AE5D7EC00E4F029 /* ChatEncryptionSelectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEncryptionSelectionLayoutManager.swift; sourceTree = "<group>"; };
 		D29F7C6C4D963F8781113C89 /* Pods-Psms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Psms.debug.xcconfig"; path = "Target Support Files/Pods-Psms/Pods-Psms.debug.xcconfig"; sourceTree = "<group>"; };
 		D89E1D1A7F7C2FE138CC9B62 /* Pods_Psms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Psms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -274,6 +276,7 @@
 		61D7C6FF27C14397004FFA2E /* ChatEncryptionSelection */ = {
 			isa = PBXGroup;
 			children = (
+				CE66A0542AE5D75B00E4F029 /* Manager */,
 				61D7C70C27C18066004FFA2E /* DataSource */,
 				61D7C70327C14426004FFA2E /* Enum */,
 				61D7C70227C14418004FFA2E /* Storyboard */,
@@ -598,6 +601,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE66A0542AE5D75B00E4F029 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CE66A0552AE5D7EC00E4F029 /* ChatEncryptionSelectionLayoutManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -744,6 +755,7 @@
 				9C8B6838268D011000A8E8EA /* ChatListTableViewDataSourceDelegate.swift in Sources */,
 				61FE29BC27A6D4E700A549A9 /* EncryptionManager.swift in Sources */,
 				9C7F5A23268F443400CB82B8 /* CreateChatViewController.swift in Sources */,
+				CE66A0562AE5D7EC00E4F029 /* ChatEncryptionSelectionLayoutManager.swift in Sources */,
 				6165FEEB2855327E00C7CA6D /* OnboardingViewController.swift in Sources */,
 				9C8B683C268D011000A8E8EA /* ChatListCellModel.swift in Sources */,
 				9C00FE48268EC02D00896F2F /* StoryboardExtension.swift in Sources */,

@@ -1,5 +1,7 @@
 PODS:
   - Actions (3.0.1)
+  - EFQRCode (6.2.1):
+    - swift_qrcodejs (~> 2.2.2)
   - EmptyDataSet-Swift (5.0.0)
   - InputBarAccessoryView (5.4.0):
     - InputBarAccessoryView/Core (= 5.4.0)
@@ -16,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - Actions (~> 3.0.0)
+  - EFQRCode (~> 6.2.1)
   - EmptyDataSet-Swift (~> 5.0.0)
   - IQKeyboardManagerSwift
   - KeychainSwift (~> 19.0)
@@ -25,6 +28,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Actions
+    - EFQRCode
     - EmptyDataSet-Swift
     - InputBarAccessoryView
     - IQKeyboardManagerSwift
@@ -35,6 +39,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Actions: 696288b71e88903a69ec8d04123df05ad16125dc
+  EFQRCode: a4d39ec3466b68dffa71de3b5caef7c9ceefdc53
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   InputBarAccessoryView: 74d471ab1fa1736806be50328df79257e52865a9
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
@@ -43,6 +48,6 @@ SPEC CHECKSUMS:
   Realm: 9533276bd76f66aa2fd0d3ffe700c1f6023dcab6
   RealmSwift: 57f5d59aa29852587aad1e861989e7af139894b5
 
-PODFILE CHECKSUM: 3eaa3f093d2567977f0e8fed7445d4b6579ac761
+PODFILE CHECKSUM: 2dea164df0abfe34639630b04c63d80dc9845698
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.13.0
