@@ -14,14 +14,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         configure()
         return true
     }
-    
-    func applicationWillResignActive(_ application: UIApplication) {
-        appCoordinator.hideSensitiveInfo()
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        appCoordinator.start()
-    }
 
 }
 
