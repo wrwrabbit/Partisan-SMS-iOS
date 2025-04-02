@@ -56,7 +56,7 @@ jobs:
       #  /usr/bin/xcodebuild -exportArchive -archivePath "$XC_ARCHIVE_PATH" -exportOptionsPlist "$XC_EXPORT_OPTIONS_FILE_PATH" -exportPath "$XC_EXPORT_PATH"
         
       - name: Upload artifacts
-        uses: actions/upload-artifact@v1.0.0
+        uses: actions/upload-artifact@v4
         with:
             name: Psms.ipa
             path: Psms.ipa
