@@ -62,4 +62,16 @@ final class EncryptionManager: EncryptionManagerProtocol {
         return KotlinByteArray.init(size: Int32(32))
     }
     
+    func isKeyValid(stringKey: String) -> Bool {
+        guard let data = Data(base64Encoded: stringKey) else {
+            return false
+        }
+        switch data.count {
+        case 16, 24, 32:
+            return true
+        default:
+            return false
+        }
+    }
+    
 }
